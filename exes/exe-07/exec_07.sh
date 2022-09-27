@@ -1,48 +1,219 @@
 #!/usr/bin/bash
 
 # Declaring variables
-configS="/etc/ssmtp/ssmtp.conf"
-configR="/etc/ssmtp/revaliases"
-admin_mail="philemonnwanne@gmail.com"
+config_s="/etc/ssmtp/ssmtp.conf"
+config_r="/etc/ssmtp/revaliases"
+admin_mail="sample@mail.com"
 
 # Update package index and install dependencies for running this script
-# sudo apt update &&
-# # sudo apt install -y iputils-ping &&
-# sudo apt install -y nano &&
-# # sudo apt install -y iproute2 &&
-# sudo apt install -y ssmtp &&
-# sudo apt install -y bsd-mailx && sleep 10
-# apt install -y cron &&
-
-# Assume root ownership for running this script
-# sudo su && sleep 3 && pwd &&
-
-# Change to the ssmtp config directory
-# cd /etc/ssmtp/ && pwd &&
+sudo apt update &&
+sudo apt install -y ssmtp &&
+sudo apt install -y mutt && sleep 10 &&
+sudo apt install -y cron &&
 
 # Overwrite the ssmtp/conf file
-# echo "" | sudo tee ${configS} &&
-echo "root=nwanne63@gmail.com" | sudo tee -a ${configS} &&
-echo "mailhub=smtp.gmail.com:465" | sudo tee -a ${configS} &&
-# echo "hostname=ubuntu" | sudo tee -a ${configS} &&
-echo "AuthUser=nwanne63@gmail.com" | sudo tee -a ${configS} &&
-echo "AuthPass=sbkgouvlahkfomkw" | sudo tee -a ${configS} &&
-echo "UseTLS=YES" | sudo tee -a ${configS} &&
-echo "UseSTARTTLS=NO" | sudo tee -a ${configS} &&
-echo "FromLineOverride=YES" | sudo tee -a ${configS} && sleep 3 &&
+echo "" | sudo tee ${config_s} &&
+# START BLOCK {SET ROOT EMAIL ADDRESS}
+set_root() {
+# Assign the filename
+config_s="/etc/ssmtp/ssmtp.conf"
 
-# Mod the ssmtp/revaliases file
-echo "root:nwanne63@gmail.com:smtp.gmail.com:465" | sudo tee -a ${configR} && sleep 3 &&
+# Set the search string
+seek=$(sudo grep "^root\w*" $config_s)
 
-# Change to the /vagrant directory
-cd /vagrant && touch metro && echo "I am now in the vagrant folder"
+# Set the swap string
+while true; do
+read -p "Enter Email: " swap_mail
+if [[ "$swap_mail" =~ [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4} ]]
+then
+    break;
+else
+    echo "Please enter a valid email address"
+fi
+done
 
-D="/vagrant/metro"
+if [[ $seek != "" && $swap_mail != "" ]]; then
+  (sudo sed -i "s/$seek/root=$swap_mail/" $config_s)
+fi
 
-# Mod metro file
-echo "this is a metro boomer file" > /vagrant/metro
+}
 
-# Send a notification to the server admin_mail 
-mail ${admin_mail} < ${D} && sleep 3 && echo "MailSent"
+set_root
+# END BLOCK {SET ROOT EMAIL ADDRESS}
 
 
+# START BLOCK {CHOOSE SMTP PORT}
+# Modifies the ssmtp.conf file with TLS/STARTTLS config
+# PORT-ONE
+_port_one() {
+# Mod ssmtp/conf file for gmail TLS/STARTTLS configuration
+# Set the search string for mailhub
+swap_mailhub(){
+seek=$(sudo grep "^mailhub\w*" $config_s)
+swap="smtp.gmail.com:587"
+# Set the swap string
+if [[ $seek != "" && $swap != "" ]]; then
+  (sudo sed -i "s/$seek/mailhub=$swap/" $config_s)
+fi
+}
+# Set the search string for useTLS
+swap_tls(){
+seek=$(sudo grep "^UseTLS\w*" $config_s)
+swap="YES"
+# Set the swap string
+if [[ $seek != "" && $swap != "" ]]; then
+  (sudo sed -i "s/$seek/UseTLS=$swap/" $config_s)
+fi
+}
+# Set the search string for useSTARTTLS
+swap_start_tls(){
+seek=$(sudo grep "^UseSTARTTLS\w*" $config_s)
+swap="YES"
+# Set the swap string
+if [[ $seek != "" && $swap != "" ]]; then
+  (sudo sed -i "s/$seek/UseSTARTTLS=$swap/" $config_s)
+fi
+}
+# Mod ssmtp/revaliases file for gmail TLS/STARTTLS configuration
+# Set the search string for useTLS
+swap_rev_root(){
+seek=$(sudo grep "^root\w*" $config_r)
+swap="$swap_mail:smtp.gmail.com:587"
+# Set the swap string
+if [[ $seek != "" && $swap != "" ]]; then
+  (sudo sed -i "s/$seek/root:$swap/" $config_r)
+fi
+}
+
+# Calling all functions in this section
+swap_mailhub
+swap_tls
+swap_start_tls
+swap_rev_root
+}
+
+
+# PORT-TWO
+_port_two() {
+# Mod ssmtp/conf file for gmail TLS/STARTTLS configuration
+# Set the search string for mailhub
+swap_mailhub(){
+seek=$(sudo grep "^mailhub\w*" $config_s)
+swap="smtp.gmail.com:465"
+# Set the swap string
+if [[ $seek != "" && $swap != "" ]]; then
+  (sudo sed -i "s/$seek/mailhub=$swap/" $config_s)
+fi
+}
+# Set the search string for useTLS
+swap_tls(){
+seek=$(sudo grep "^UseTLS\w*" $config_s)
+swap="YES"
+# Set the swap string
+if [[ $seek != "" && $swap != "" ]]; then
+  (sudo sed -i "s/$seek/UseTLS=$swap/" $config_s)
+fi
+}
+# Set the search string for useSTARTTLS
+swap_start_tls(){
+seek=$(sudo grep "^UseSTARTTLS\w*" $config_s)
+swap="NO"
+# Set the swap string
+if [[ $seek != "" && $swap != "" ]]; then
+  (sudo sed -i "s/$seek/UseSTARTTLS=$swap/" $config_s)
+fi
+}
+# Mod ssmtp/revaliases file for gmail TLS/STARTTLS configuration
+# Set the search string for useTLS
+swap_rev_root(){
+seek=$(sudo grep "^root\w*" $config_r)
+swap="$swap_mail:smtp.gmail.com:465"
+# Set the swap string
+if [[ $seek != "" && $swap != "" ]]; then
+  (sudo sed -i "s/$seek/root:$swap/" $config_r)
+fi
+}
+
+# Calling all functions in this section
+swap_mailhub
+swap_tls
+swap_start_tls
+swap_rev_root
+}
+
+# Depends on the return value of the set_root function
+# Set Gmail SMTP port based on user preference
+set_port() {
+# validate user selection
+while true; do
+read -p "Choose a Port: " port
+if [[ $port == 587 && $port != "" ]]
+then
+    _port_one;
+    break;
+elif [[ $port == 465 && $port != "" ]]
+then
+    _port_two;
+    break;
+else
+    echo "Please enter a valid port number"
+fi
+done
+
+}
+
+set_port
+# END BLOCK {CHOOSE SMTP PORT}
+
+
+# START BLOCK {SET GMAIL APP PASSWORD}
+auth_pass() {
+# Set the search string for auth_pass
+seek=$(sudo grep "^AuthPass\w*" $config_s)
+
+# Set the swap string
+while true; do
+read -p "Enter App Password: " auth_password
+if [[ "$auth_password" =~ [a-zA-Z]{16} ]]
+then
+    break;
+else
+    echo "Please enter a valid app password"
+    echo "Note: App password should be 16 characters long"
+fi
+done
+
+if [[ $seek != "" && $auth_password != "" ]]; then
+  (sudo sed -i "s/$seek/AuthPass=$auth_password/" $config_s)
+fi
+
+}
+
+auth_pass
+# END BLOCK {SET GMAIL APP PASSWORD}
+
+
+# START BLOCK {SET AUTHORISED EMAIL ADDRESS}
+auth_user() {
+# Set the search string for auth_user
+seek=$(sudo grep "^AuthUser\w*" $config_s)
+
+# Set the swap string
+while true; do
+read -p "Enter Authorised Email: " auth_email
+if [[ "$auth_email" =~ [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4} ]]
+then
+    break;
+else
+    echo "Please enter an authorised email address"
+fi
+done
+
+if [[ $seek != "" && $auth_email != "" ]]; then
+  (sudo sed -i "s/$seek/AuthUser=$auth_email/" $config_s)
+fi
+
+}
+
+auth_user
+# END BLOCK {SET AUTHORISED EMAIL ADDRESS}
