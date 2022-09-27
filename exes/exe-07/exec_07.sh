@@ -12,7 +12,7 @@ sudo apt install -y mutt && sleep 10 &&
 sudo apt install -y cron &&
 
 # Overwrite the ssmtp/conf file
-echo "" | sudo tee ${config_s} &&
+# echo "" | sudo tee ${config_s} &&
 # START BLOCK {SET ROOT EMAIL ADDRESS}
 set_root() {
 # Set the search string
