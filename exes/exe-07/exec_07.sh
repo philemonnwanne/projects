@@ -15,9 +15,6 @@ sudo apt install -y cron &&
 echo "" | sudo tee ${config_s} &&
 # START BLOCK {SET ROOT EMAIL ADDRESS}
 set_root() {
-# Assign the filename
-config_s="/etc/ssmtp/ssmtp.conf"
-
 # Set the search string
 seek=$(sudo grep "^root\w*" $config_s)
 
