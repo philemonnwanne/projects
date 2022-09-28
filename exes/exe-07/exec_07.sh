@@ -71,6 +71,15 @@ if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/UseSTARTTLS=$swap/" $config_s)
 fi
 }
+# Set the search string for FromLineOverride
+swap_from_line_override(){
+seek=$(sudo grep "^FromLineOverride\w*" $config_s)
+swap="YES"
+# Set the swap string
+if [[ $seek != "" && $swap != "" ]]; then
+  (sudo sed -i "s/$seek/FromLineOverride=$swap/" $config_s)
+fi
+}
 # Mod ssmtp/revaliases file for gmail TLS/STARTTLS configuration
 # Set the search string for useTLS
 swap_rev_root(){
@@ -83,10 +92,11 @@ fi
 }
 
 # Calling all functions in this section
-swap_mailhub
-swap_tls
-swap_start_tls
-swap_rev_root
+swap_mailhub || echo "mailhub=smtp.gmail.com:587" | sudo tee -a ${config_s}
+echo "UseTLS=YES" | sudo tee -a ${config_s} || swap_tls
+echo "UseSTARTTLS=YES" | sudo tee -a ${config_s} || swap_start_tls
+echo "root:$swap_mail:smtp.gmail.com:587" | sudo tee -a ${config_r} || swap_rev_root
+echo "FromLineOverride=YES" | sudo tee -a ${config_s} || swap_from_line_override
 }
 
 
@@ -120,6 +130,15 @@ if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/UseSTARTTLS=$swap/" $config_s)
 fi
 }
+# Set the search string for FromLineOverride
+swap_from_line_override(){
+seek=$(sudo grep "^FromLineOverride\w*" $config_s)
+swap="YES"
+# Set the swap string
+if [[ $seek != "" && $swap != "" ]]; then
+  (sudo sed -i "s/$seek/FromLineOverride=$swap/" $config_s)
+fi
+}
 # Mod ssmtp/revaliases file for gmail TLS/STARTTLS configuration
 # Set the search string for useTLS
 swap_rev_root(){
@@ -132,10 +151,11 @@ fi
 }
 
 # Calling all functions in this section
-swap_mailhub
-swap_tls
-swap_start_tls
-swap_rev_root
+swap_mailhub || echo "mailhub=smtp.gmail.com:465" | sudo tee -a ${config_s}
+echo "UseTLS=YES" | sudo tee -a ${config_s} || swap_tls
+echo "UseSTARTTLS=NO" | sudo tee -a ${config_s} || swap_start_tls
+echo "root:$swap_mail:smtp.gmail.com:465" | sudo tee -a ${config_r} || swap_rev_root
+echo "FromLineOverride=YES" | sudo tee -a ${config_s} || swap_from_line_override
 }
 
 # Depends on the return value of the set_root function
@@ -186,7 +206,7 @@ fi
 
 }
 
-auth_pass
+auth_pass || echo "AuthPass=$auth_password" | sudo tee -a ${config_s}
 # END BLOCK {SET GMAIL APP PASSWORD}
 
 
@@ -212,5 +232,5 @@ fi
 
 }
 
-auth_user
+auth_user || echo "AuthUser=$auth_email" | sudo tee -a ${config_s}
 # END BLOCK {SET AUTHORISED EMAIL ADDRESS}
