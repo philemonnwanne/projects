@@ -1,0 +1,48 @@
+---
+- name: deploy apache2 on host server[remote]
+  hosts: faangservers
+  become: true # Perform all the Ansible playbook tasks as another user.
+  become_user: root # Default username to be used by Ansible
+
+  tasks:
+    - name: Update all packages to their latest version
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
+        update_cache: yes
+
+    - name: Install Apache server/PHP/Apache-PHP-module
+      ansible.builtin.apt:
+        name: 
+        - apache2
+        - php
+        - libapache2-mod-php
+        state: latest
+
+    - name: Remove useless packages from the cache & dependencies that are no longer required
+      ansible.builtin.apt:
+        autoclean: yes
+        autoremove: yes
+
+#     - name: Allow TCP access to tcp port 80 and disable UFW
+#       community.general.ufw:
+#         state: disabled
+#         rule: allow
+#         port: "80"
+#         proto: tcp
+
+    - name: Start/restart service apache2, if not started
+      ansible.builtin.systemd:
+        name: apache2
+        enabled: yes
+        state: restarted
+
+    - name: set timezone to Africa/Lagos
+      timezone:
+        name: Africa/Lagos
+
+    - name: Copy my "index.php" file to the host server[remote]
+      ansible.builtin.copy:
+        src: /home/vagrant/index.php
+        dest: /var/www/html/index.php
+        remote_src: no
