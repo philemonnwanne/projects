@@ -2,9 +2,9 @@
 # [Automate the boring stuff ](https://github.com/philemonnwanne/o0o0o/tree/main/exes/exe-07)
 
 ## Setup Project requirements for Sending mail via terminal
-This script will setup all dependencies for carrying the seventh exercise. 
+This script will setup all dependencies for carrying out the seventh exercise. 
 
-> Note: There isn't a support for crontab yet, and I might raise that as an issue. Also feel free to raise an issue on this if you have an immediate solution.
+> Note: There isn't any support for crontab yet, and I might raise that as an issue. Also feel free to raise an issue on this if you have an immediate solution.
 
 ![cron](https://i2.wp.com/www.adminschoice.com/wp-content/uploads/2009/12/crontab-layout.png?w=775&ssl=1)
 
