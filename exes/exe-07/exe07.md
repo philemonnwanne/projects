@@ -22,5 +22,6 @@ After all that is done, you can go ahead to setup your crontab with the followin
 * * * * * /home/vagrant/exec-07.sh
 ```
 
-Note: Contributions are highly welcome. There are lots of functionalities missing, so feel free to raise issues and solutions if you have them.
-This has also been tested on ubuntu version 20.04 for now running on docker or virtualbox environments
+#### Note: 
+Contributions are highly welcome. There are lots of functionalities missing, so feel free to raise issues and solutions if you have them.
+This has only been tested on ubuntu version 20.04 running on docker or virtualbox environments.
