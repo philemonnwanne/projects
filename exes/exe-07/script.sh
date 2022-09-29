@@ -9,9 +9,9 @@ sys_admin="Mr Root"
 admin_mail="root@gmail.com"
 
 # Source and destination files
-S='/vagrant/script.sh'
-D='/vagrant/logs/logfile.log'
-DIR='/vagrant/logs'
+S='/home/vagrant/script.sh'
+D='/home/vagrant/logs/logfile.log'
+DIR='/home/vagrant/logs'
 
 # Create a logs directory in "/vagrant" but if exits skip
 if [ "$PWD" == "$DIR" ]; 
@@ -22,7 +22,7 @@ else
 fi
 
 # Switch to the "/vagrant/logs" directory
-cd /vagrant/logs
+cd /home/vagrant/logs
 
 # To create an empty log file
 touch logfile.log
