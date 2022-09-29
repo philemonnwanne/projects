@@ -1,0 +1,9 @@
+hosts:
+    webserver01:
+      ansible_host: 192.0.2.20
+
+# Note: here even the ip alone will suffice:
+
+# Eg:
+
+# 192.0.2.140
