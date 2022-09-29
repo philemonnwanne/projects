@@ -1,5 +1,5 @@
 
-# [Automate the boring stuff ](https://github.com/philemonnwanne/o0o0o/tree/main/exes/exe-07)
+# [Automate](https://github.com/philemonnwanne/o0o0o/tree/main/exes/exe-07) the boring stuff
 
 ## Setup Project requirements for Sending mail via terminal
 This script will setup all dependencies for carrying out the seventh exercise. 
