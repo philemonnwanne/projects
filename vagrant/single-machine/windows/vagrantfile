@@ -1,0 +1,11 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/focal64"
+  config.vm.hostname = "ubuntu"
+  # Create a private network
+  config.vm.network "private_network", type: "dhcp"
+  end
+  # 👇🏾Enable if you plan to run a script
+  # config.vm.provision "shell", path: "onload.sh"
+end
