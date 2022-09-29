@@ -1,6 +1,3 @@
-# Header
-
-```ruby
 Vagrant.configure("2") do |config|
   # Multi-Machine setup
   config.vm.define "master" do |mas|
@@ -22,4 +19,4 @@ Vagrant.configure("2") do |config|
   end
 
 end
-```
+
