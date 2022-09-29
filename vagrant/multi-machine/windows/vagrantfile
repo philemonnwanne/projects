@@ -1,0 +1,25 @@
+# Header
+
+```ruby
+Vagrant.configure("2") do |config|
+  # Multi-Machine setup
+  config.vm.define "master" do |mas|
+   mas.vm.box = "ubuntu/focal64"
+   mas.vm.hostname = "master"
+   mas.vm.network "private_network", type: "dhcp"
+  end
+
+  config.vm.define "slave1" do |slv1|
+   slv1.vm.box = "ubuntu/focal64"
+   slv1.vm.hostname = "slave1"
+   slv1.vm.network "private_network", type: "dhcp"
+  end
+
+  config.vm.define "slave2" do |slv2|
+   slv2.vm.box = "ubuntu/focal64"
+   slv2.vm.hostname = "slave2"        
+   slv2.vm.network "private_network", type: "dhcp"
+  end
+
+end
+```
