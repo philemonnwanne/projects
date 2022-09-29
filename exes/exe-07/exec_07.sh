@@ -3,16 +3,17 @@
 # Declaring variables
 config_s="/etc/ssmtp/ssmtp.conf"
 config_r="/etc/ssmtp/revaliases"
-admin_mail="sample@mail.com"
+admin_mail=$swap_mail
 
 # Update package index and install dependencies for running this script
 sudo apt update &&
 sudo apt install -y ssmtp &&
-sudo apt install -y mutt && sleep 10 &&
-sudo apt install -y cron &&
+sudo apt install -y mutt &&
+sudo apt install -y nano
+# sudo apt install -y cron &&
 
 # Overwrite the ssmtp/conf file
-# echo "" | sudo tee ${config_s} &&
+# echo "" | sudo tee ${config_s} -- For test
 # START BLOCK {SET ROOT EMAIL ADDRESS}
 set_root() {
 # Set the search string
@@ -51,6 +52,8 @@ swap="smtp.gmail.com:587"
 # Set the swap string
 if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/mailhub=$swap/" $config_s)
+else
+   echo "mailhub=smtp.gmail.com:587" | sudo tee -a ${config_s}
 fi
 }
 # Set the search string for useTLS
@@ -60,6 +63,8 @@ swap="YES"
 # Set the swap string
 if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/UseTLS=$swap/" $config_s)
+else
+  echo "UseTLS=YES" | sudo tee -a ${config_s}
 fi
 }
 # Set the search string for useSTARTTLS
@@ -69,6 +74,8 @@ swap="YES"
 # Set the swap string
 if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/UseSTARTTLS=$swap/" $config_s)
+else
+  echo "UseSTARTTLS=YES" | sudo tee -a ${config_s}
 fi
 }
 # Set the search string for FromLineOverride
@@ -78,6 +85,8 @@ swap="YES"
 # Set the swap string
 if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/FromLineOverride=$swap/" $config_s)
+else
+  echo "FromLineOverride=YES" | sudo tee -a ${config_s}
 fi
 }
 # Mod ssmtp/revaliases file for gmail TLS/STARTTLS configuration
@@ -88,15 +97,17 @@ swap="$swap_mail:smtp.gmail.com:587"
 # Set the swap string
 if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/root:$swap/" $config_r)
+else
+  echo "root:$swap_mail:smtp.gmail.com:587" | sudo tee -a ${config_r}
 fi
 }
 
 # Calling all functions in this section
-swap_mailhub || echo "mailhub=smtp.gmail.com:587" | sudo tee -a ${config_s}
-echo "UseTLS=YES" | sudo tee -a ${config_s} || swap_tls
-echo "UseSTARTTLS=YES" | sudo tee -a ${config_s} || swap_start_tls
-echo "root:$swap_mail:smtp.gmail.com:587" | sudo tee -a ${config_r} || swap_rev_root
-echo "FromLineOverride=YES" | sudo tee -a ${config_s} || swap_from_line_override
+swap_mailhub
+swap_tls
+swap_start_tls 
+swap_from_line_override
+swap_rev_root
 }
 
 
@@ -110,6 +121,8 @@ swap="smtp.gmail.com:465"
 # Set the swap string
 if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/mailhub=$swap/" $config_s)
+else
+  echo "mailhub=smtp.gmail.com:465" | sudo tee -a ${config_s}
 fi
 }
 # Set the search string for useTLS
@@ -119,6 +132,8 @@ swap="YES"
 # Set the swap string
 if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/UseTLS=$swap/" $config_s)
+else
+  echo "UseTLS=YES" | sudo tee -a ${config_s}
 fi
 }
 # Set the search string for useSTARTTLS
@@ -128,6 +143,8 @@ swap="NO"
 # Set the swap string
 if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/UseSTARTTLS=$swap/" $config_s)
+else
+  echo "UseSTARTTLS=NO" | sudo tee -a ${config_s}
 fi
 }
 # Set the search string for FromLineOverride
@@ -137,6 +154,8 @@ swap="YES"
 # Set the swap string
 if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/FromLineOverride=$swap/" $config_s)
+else
+  echo "FromLineOverride=YES" | sudo tee -a ${config_s}
 fi
 }
 # Mod ssmtp/revaliases file for gmail TLS/STARTTLS configuration
@@ -147,15 +166,17 @@ swap="$swap_mail:smtp.gmail.com:465"
 # Set the swap string
 if [[ $seek != "" && $swap != "" ]]; then
   (sudo sed -i "s/$seek/root:$swap/" $config_r)
+else
+  echo "root:$swap_mail:smtp.gmail.com:465" | sudo tee -a ${config_r}
 fi
 }
 
 # Calling all functions in this section
-swap_mailhub || echo "mailhub=smtp.gmail.com:465" | sudo tee -a ${config_s}
-echo "UseTLS=YES" | sudo tee -a ${config_s} || swap_tls
-echo "UseSTARTTLS=NO" | sudo tee -a ${config_s} || swap_start_tls
-echo "root:$swap_mail:smtp.gmail.com:465" | sudo tee -a ${config_r} || swap_rev_root
-echo "FromLineOverride=YES" | sudo tee -a ${config_s} || swap_from_line_override
+swap_mailhub
+swap_tls
+swap_start_tls
+swap_from_line_override
+swap_rev_root
 }
 
 # Depends on the return value of the set_root function
@@ -202,11 +223,13 @@ done
 
 if [[ $seek != "" && $auth_password != "" ]]; then
   (sudo sed -i "s/$seek/AuthPass=$auth_password/" $config_s)
+else
+  echo "AuthPass=$auth_password" | sudo tee -a ${config_s}
 fi
 
 }
+auth_pass
 
-auth_pass || echo "AuthPass=$auth_password" | sudo tee -a ${config_s}
 # END BLOCK {SET GMAIL APP PASSWORD}
 
 
@@ -228,9 +251,30 @@ done
 
 if [[ $seek != "" && $auth_email != "" ]]; then
   (sudo sed -i "s/$seek/AuthUser=$auth_email/" $config_s)
+else
+  echo "AuthUser=$auth_email" | sudo tee -a ${config_s}
 fi
 
 }
+auth_user
 
-auth_user || echo "AuthUser=$auth_email" | sudo tee -a ${config_s}
 # END BLOCK {SET AUTHORISED EMAIL ADDRESS}
+
+
+# TEST MAIL FUNCTIONALITY
+# #switch to the vagrant's home directory
+# cd /home/vagrant && touch metro && echo "I am now inside vagrant's home directory"
+
+# D="/home/vagrant/metro"
+
+# # Mod metro file
+# echo "this is a ... file" > /home/vagrant/metro
+
+# # Send a notification to the server admin_mail (run in the terminal to test)
+# mutt -s "127.0.0.1 is whwere I belong" -- your_email@gmail.com < metro
+# mutt -s "127.0.0.1 is whwere I belong" -- $admin_mail < metro
+
+# #For mail with an attachment:
+# echo "127.0.0.1 is whwere I belong" | mutt -s 'My mail ' your_email@gmail.com -a metro
+#  echo "127.0.0.1 is whwere I belong" | mutt -s 'My mail ' $admin_mail -a metro
+
