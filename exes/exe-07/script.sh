@@ -83,7 +83,7 @@ currentTime=$(date +%H:%M)
 if [ ${currentTime} = 00:00 ];
     then mail ${admin_mail} < ${D} &&
     # Sleep for 10m minutes and delete the previous log file
-    sleep 10 &&
+    sleep 10m &&
     rm -f ${D}
 else
     :
