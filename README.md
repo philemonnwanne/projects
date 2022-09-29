@@ -8,5 +8,13 @@ WARNING: FULL FRONTAL NERDITY
 
 > (Tech-challenged persons strongly cautioned)
 
+## Rules
+- Respect people
+- Be friendly, helpful and patient
+- Contribute in any way
+
+## Contribution
+- Please read the [contributing.md]() file for details on how to submit a valid pull request to the repo.
+
 ### License
-FYI [GNU](https://github.com/philemonnwanne/-_-/blob/main/LICENSE)
+This project is licensed by [GNU](https://github.com/philemonnwanne/-_-/blob/main/LICENSE) see the [license](https://github.com/philemonnwanne/-_-/blob/main/LICENSE) file for more info
