@@ -17,7 +17,7 @@ Netmask Binary: **11111111.11111111.11111111.11110000**
 
 <sub>Then inorder to convert the netmask address from binary to decimal I applied the following formular:</sub>
 
-> Note: In the binary system there are only 1s and 0s. Depending on their position in the octet, they get different values. Each position is a power of 2. To get the decimal number you have to sum up those number.
+> Note: In the binary system there are only 1s and 0s. Depending on their position in the octet, they get different values. Each position is a power of 2. To get the decimal number you have to sum up those numbers.
 
 | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
