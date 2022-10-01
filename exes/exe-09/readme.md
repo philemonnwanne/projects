@@ -85,7 +85,7 @@ Net Mask = **11111111.11111111.11111111.11110000**
 
 Given IP = **11000001.00011111.00010100.00100011**
 
-To find the **network ID**, we haveto subtract the **given IP adress** in binary form from the **net mask** also in binary which will give:
+To find the **network ID**, we have to subtract the **given IP adress** in binary form from the **net mask** also in binary which will give:
 
 ### First Octet:
 | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
