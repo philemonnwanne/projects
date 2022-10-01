@@ -71,7 +71,7 @@ Therefore: **11111111.11111111.11111111.11110000** in binary = **255.255.255.248
 
 Wild card = **Total no. of active bits** - **Net mask**
 
-          = 255 - 284
+          = 255 - 248
           
           = 7
           
