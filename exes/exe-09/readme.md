@@ -3,7 +3,7 @@
 
 #### Procedure:
 
-To solve this you have to first figure out the netmask from the given CIDR (/29)
+To solve this you have to first figure out the subnet mask from the given CIDR (/29)
 
 > Note:
 Th CIDR indicates the total number of active bits (1's) which also indicates the network portion of the IP address while the 0's indicate the host portion of the network.
@@ -16,7 +16,7 @@ Converting it to binary then gives:
 
 Netmask Binary: **11111111.11111111.11111111.11110000**
 
-<sub>Then inorder to convert the netmask address from binary to decimal apply the following formular:</sub>
+<sub>Then inorder to convert the subnet mask address from binary to decimal apply the following formular:</sub>
 
 > Note: In the binary system there are only 1s and 0s. Depending on their position in the octet, they get different values. Each position is a power of 2. To get the decimal number you have to sum up those numbers.
 
@@ -69,7 +69,7 @@ Therefore: **11111111.11111111.11111111.11110000** in binary = **255.255.255.248
 
 ## Next is to find the wild card:
 
-Wild card = subtract the subnet mask from 255.255.255.255
+Wild card = subtract the **subnet mask** from **255.255.255.255**
 
           = 255.255.255.255 - 255.255.255.248
           
@@ -83,7 +83,7 @@ Wild card = subtract the subnet mask from 255.255.255.255
 
 **Where** 
 
-Net Mask = **11111111.11111111.11111111.11110000**
+Subnet Mask = **11111111.11111111.11111111.11110000**
 
 Given IP = **11000001.00010000.00010100.00100011**
 
@@ -92,7 +92,7 @@ To find the **network ID**, simply do binary **and** operation between the **giv
 ### First Octet:
 | N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-**Net Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
+**Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
 **Given IP** | 1  | 1  | 1  | 1  | 0  | 0  | 0  | 1  |
 **Result** | 1  | 1  | 0  | 0  | 0  | 0  | 0  | 1  |
 
@@ -101,7 +101,7 @@ Total Sum = **193**
 ### Second Octet:
 | N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-**Net Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
+**Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
 **Given IP** | 0  | 0  | 0  | 1  | 0  | 0  | 0  | 0  |
 **Result** | 0  | 0  | 0  | 1  | 0  | 0  | 0  | 0  |
 
@@ -110,7 +110,7 @@ Total Sum = **16**
 ### Third Octet:
 | N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-**Net Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
+**Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
 **Given IP** | 0  | 0  | 0  | 1  | 0  | 1  | 0  | 0  |
 **Result** | 0  | 0  | 0  | 1  | 0  | 1  | 0  | 0  |
 
@@ -119,7 +119,7 @@ Total Sum = **20**
 ### Fourth Octet:
 | N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-**Net Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
+**Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
 **Given IP** | 0  | 0  | 1  | 0  | 0  | 0  | 1  | 1  |
 **Result** | 0  | 0  | 1  | 0  | 0  | 0  | 0  | 0  |
 
@@ -139,7 +139,7 @@ Where **n** = number of host bits minus two
 This is because the first and last IP addresses are always reserved for the network and broadcast ID's respectively
 
 > Note 
-In this case we have to count the number of host's bits (0's) in the net mask binary starting from the right, which will give a total of **3**
+In this case we have to count the number of host's bits (0's) in the subnet mask binary starting from the right, which will give a total of **3**
 
 Number of hosts = 2^<sup>3</sup> - 2
 
