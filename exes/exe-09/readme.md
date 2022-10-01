@@ -69,8 +69,8 @@ Therefore: **11111111.11111111.11111111.11110000** in binary = **255.255.255.248
 
 ## Next is to find the wild card:
 
-Wild card = **Total no. of active bits** - **Net mask**
-
+Wild card = subtract the subnet mask from 255.255.255.255
+          = 255.255.255.255 - 255.255.255.248
           = 255 - 248
           
           = 7
