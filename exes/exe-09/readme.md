@@ -83,7 +83,7 @@ Wild card = **Total no. of active bits** - **Net mask**
 
 Net Mask = **11111111.11111111.11111111.11110000**
 
-Given IP = **11000001.00011111.00010100.00100011**
+Given IP = **11000001.00010000.00010100.00100011**
 
 To find the **network ID**, simply do binary **and** operation between the **given IP address** and the **subnet mask**:
 
