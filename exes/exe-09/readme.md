@@ -1,3 +1,6 @@
+## [Subnet Verification Link](https://www.calculator.net/ip-subnet-calculator.html) click me!
+
+
 #### Procedure:
 
 To solve this I had to first figure out the netmask from the given CIDR (/29)
