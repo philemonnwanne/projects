@@ -114,7 +114,7 @@ Total Sum = **16**
 
 Total Sum = **20**
 
-### Third Octet:
+### Fourth Octet:
 | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 **Net Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
