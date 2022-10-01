@@ -88,7 +88,7 @@ Given IP = **11000001.00011111.00010100.00100011**
 To find the **network ID**, simply do binary **and** operation between the **given IP address** and the **subnet mask**:
 
 ### First Octet:
-| First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
+| N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 **Net Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
 **Given IP** | 1  | 1  | 1  | 1  | 0  | 0  | 0  | 1  |
@@ -97,7 +97,7 @@ To find the **network ID**, simply do binary **and** operation between the **giv
 Total Sum = **193**
 
 ### Second Octet:
-| First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
+| N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 **Net Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
 **Given IP** | 0  | 0  | 0  | 1  | 0  | 0  | 0  | 0  |
@@ -106,7 +106,7 @@ Total Sum = **193**
 Total Sum = **16**
 
 ### Third Octet:
-| First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
+| N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 **Net Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
 **Given IP** | 0  | 0  | 0  | 1  | 0  | 1  | 0  | 0  |
@@ -115,7 +115,7 @@ Total Sum = **16**
 Total Sum = **20**
 
 ### Fourth Octet:
-| First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
+| N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 **Net Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
 **Given IP** | 0  | 0  | 1  | 0  | 0  | 0  | 1  | 1  |
