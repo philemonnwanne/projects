@@ -16,7 +16,7 @@ Converting it to binary then gives:
 
 Netmask Binary: **11111111.11111111.11111111.11110000**
 
-<sub>Then inorder to convert the netmask address from binary to decimal I applied the following formular:</sub>
+<sub>Then inorder to convert the netmask address from binary to decimal apply the following formular:</sub>
 
 > Note: In the binary system there are only 1s and 0s. Depending on their position in the octet, they get different values. Each position is a power of 2. To get the decimal number you have to sum up those numbers.
 
@@ -85,7 +85,7 @@ Net Mask = **11111111.11111111.11111111.11110000**
 
 Given IP = **11000001.00011111.00010100.00100011**
 
-To find the **network ID**, we have to subtract the **given IP adress** in binary form from the **net mask** also in binary which will give:
+To find the **network ID**, simply do binary **and** operation between the **given IP address** and the **subnet mask**:
 
 ### First Octet:
 | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
