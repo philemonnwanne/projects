@@ -1,3 +1,10 @@
+Given the following IP address/CIDR: **193.16.20.35/29**
+
+- what is the Network IP
+- number of hosts
+- range of IP addresses
+- broadcast IP from this subnet
+
 ## [Subnet Verification Link](https://www.calculator.net/ip-subnet-calculator.html) click me!
 
 
