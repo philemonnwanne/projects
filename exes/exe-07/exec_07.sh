@@ -272,9 +272,9 @@ auth_user
 
 # # Send a notification to the server admin_mail (run in the terminal to test)
 # mutt -s "127.0.0.1 is whwere I belong" -- your_email@gmail.com < metro
-# mutt -s "127.0.0.1 is whwere I belong" -- $admin_mail < metro
+# mutt -s "First mail injected as a file" -- $admin_mail < metro
 
 # #For mail with an attachment:
-# echo "127.0.0.1 is whwere I belong" | mutt -s 'My mail ' your_email@gmail.com -a metro
-#  echo "127.0.0.1 is whwere I belong" | mutt -s 'My mail ' $admin_mail -a metro
+# echo "127.0.0.1 is whwere I belong" | mutt -s 'Mail with an attachment' your_email@gmail.com -a metro
+# echo "Second mail sent as an attachment" | mutt -s 'Mail with an attachment' $admin_mail -a metro
 
