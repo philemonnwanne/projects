@@ -90,6 +90,7 @@ else
 fi
 }
 # Mod ssmtp/revaliases file for gmail TLS/STARTTLS configuration
+# Create aliases for local usernames (optional)
 # Set the search string for useTLS
 swap_rev_root(){
 seek=$(sudo grep "^root\w*" $config_r)
@@ -159,6 +160,7 @@ else
 fi
 }
 # Mod ssmtp/revaliases file for gmail TLS/STARTTLS configuration
+# Create aliases for local usernames (optional)
 # Set the search string for useTLS
 swap_rev_root(){
 seek=$(sudo grep "^root\w*" $config_r)
