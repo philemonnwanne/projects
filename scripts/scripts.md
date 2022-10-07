@@ -1,1 +1,1 @@
-# most of my provisioning scripts
+# most of my shell scripts
