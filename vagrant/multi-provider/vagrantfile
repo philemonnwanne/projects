@@ -1,0 +1,46 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+  # ... default provisioner (virtual box)
+  config.vm.box = "hashicorp/bionic64"
+  # ... assign vm host-name
+  config.vm.hostname = "ubuntu"
+  # Create a private network
+  config.vm.network "private_network", type: "dhcp"
+  # Custom configuration for docker
+  config.vm.provider :docker do |docker|
+  # this is where your Dockerfile lives
+   docker.image = "philemonnwanne/ubuntu-mod:20.04"
+    # Make sure it sets up ssh with the Dockerfile
+    # Vagrant is pretty dependent on ssh
+    docker.has_ssh = true
+    # Configure Docker to allow access to more resources
+    docker.privileged = true
+    docker.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
+    docker.create_args = ["--cgroupns=host"]
+  end
+  # Custom configuration for vmware fusion
+  config.vm.provider "vmware_fusion" do |vmware|
+    vmware.vm.box = "ubuntu/focal64"
+  end
+  # Custom configuration for hyperv
+  config.vm.provider "hyperv" do |hype|
+    hype.vm.box = "hashicorp/bionic64"
+  end 
+  # Custom configuration for aws
+  config.vm.provider :aws do |aws|
+    aws.access_key_id = "foo"
+    aws.secret_access_key = "bar"
+    aws.region = "us-east-1"
+
+    # Simple region config
+    aws.region_config "us-east-1", :ami => "ami-12345678"
+
+    # More comprehensive region config
+    aws.region_config "us-west-2" do |region|
+      region.ami = "ami-87654321"
+      region.keypair_name = "company-west"
+    end
+  end
+  # config.vm.provision "shell", path: "your_script.sh"
+end
