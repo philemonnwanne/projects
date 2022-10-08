@@ -97,12 +97,12 @@ Given IP = **11000001.00010000.00010100.00100011**
 To find the **network ID**, simply do binary **and** operation between the **given IP address** and the **subnet mask**:
 
 ### First Octet:
-> Binary and operation between **(255 & 193)** or **(11111111 & 11110001)**
+> Binary and operation between **(255 & 193)** or **(11111111 & 11000001)**
 
 | N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 **Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
-**Given IP** | 1  | 1  | 1  | 1  | 0  | 0  | 0  | 1  |
+**Given IP** | 1  | 1  | 0  | 0  | 0  | 0  | 0  | 1  |
 **Result** | 1  | 1  | 0  | 0  | 0  | 0  | 0  | 1  |
 
 Total Sum = **193**
