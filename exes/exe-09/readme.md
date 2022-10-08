@@ -21,7 +21,7 @@ Converting it to binary then gives:
 
 **Host Portion:** 0's
 
-Netmask Binary: **11111111.11111111.11111111.11110000**
+Netmask Binary: **11111111.11111111.11111111.11111000**
 
 <sub>Then inorder to convert the subnet mask address from binary to decimal apply the following formular:</sub>
 
@@ -90,7 +90,7 @@ Wild card = subtract the **subnet mask** from **255.255.255.255**
 
 **Where** 
 
-Subnet Mask = **11111111.11111111.11111111.11110000**
+Subnet Mask = **11111111.11111111.11111111.11111000**
 
 Given IP = **11000001.00010000.00010100.00100011**
 
@@ -126,7 +126,7 @@ Total Sum = **20**
 ### Fourth Octet:
 | N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-**Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
+**Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 0  | 0  | 0  |
 **Given IP** | 0  | 0  | 1  | 0  | 0  | 0  | 1  | 1  |
 **Result** | 0  | 0  | 1  | 0  | 0  | 0  | 0  | 0  |
 
