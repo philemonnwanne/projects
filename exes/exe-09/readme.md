@@ -72,7 +72,7 @@ Total: **248**
 
 Octet Sum = **255.255.255.248**
 
-Therefore: **11111111.11111111.11111111.11110000** in binary = **255.255.255.248**
+Therefore: **11111111.11111111.11111111.11111000** in binary = **255.255.255.248**
 
 ## Next is to find the wild card:
 
@@ -97,6 +97,8 @@ Given IP = **11000001.00010000.00010100.00100011**
 To find the **network ID**, simply do binary **and** operation between the **given IP address** and the **subnet mask**:
 
 ### First Octet:
+> Binary and operation between **(255 & 193)** or **(11111111 & 11110001)**
+
 | N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 **Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
@@ -106,6 +108,8 @@ To find the **network ID**, simply do binary **and** operation between the **giv
 Total Sum = **193**
 
 ### Second Octet:
+> Binary and operation between **(255 & 16)** or **(11111111 & 00010000)**
+
 | N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 **Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
@@ -115,6 +119,8 @@ Total Sum = **193**
 Total Sum = **16**
 
 ### Third Octet:
+> Binary and operation between **(255 & 20)** or **(11111111 & 00010100)**
+
 | N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 **Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 1  | 1  | 1  |
@@ -124,6 +130,8 @@ Total Sum = **16**
 Total Sum = **20**
 
 ### Fourth Octet:
+> Binary and operation between **(248 & 35)** or **(11111000 & 00100011)**
+
 | N/A  | First Octet  | Second Octet | Third Octet | Fourth Octet | Fifth Octet | Sixth Octet | Seventh Octet | Eight Octet |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 **Subnet Mask** | 1  | 1  | 1  | 1  | 1  | 0  | 0  | 0  |
