@@ -13,7 +13,7 @@ SCRIPT_SRC='/home/vagrant/script.sh'
 LOG_FILE='/home/vagrant/logs/log_file.log'
 LOG_DIR='/home/vagrant/logs'
 
-# Create a logs directory in "/vagrant" but if exits skip
+# Create a logs directory in "/home/vagrant" but if exits skip
 if [ "$PWD" == "$LOG_DIR" ]; 
 then  
     echo "Directory Already Exits!"
