@@ -21,7 +21,7 @@ else
     mkdir $LOG_DIR
 fi
 
-# Switch to the "/vagrant/logs" directory
+# Switch to the "/home/vagrant/logs" directory
 cd /home/vagrant/logs
 
 # To create an empty log file
@@ -33,7 +33,7 @@ echo "CURRENT DATE/TIME" >> ${LOG_FILE}
 # Just a demarcation
 echo "------------------------------------" >> ${LOG_FILE}
 
-# Display the curent date and time in UTC format
+# Display the current date and time in UTC format
 date >> ${LOG_FILE}
 
 # Insert an empty line
