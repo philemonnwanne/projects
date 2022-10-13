@@ -4,12 +4,9 @@
 
 # Author: Mr Root
 
-# Declare sys_admin variable
+# Variable declaration
 sys_admin="Mr Root"
 admin_mail="root@gmail.com"
-
-# Source and destination files
-SCRIPT_SRC='/home/vagrant/script.sh'
 LOG_FILE='/home/vagrant/logs/log_file.log'
 LOG_DIR='/home/vagrant/logs'
 
