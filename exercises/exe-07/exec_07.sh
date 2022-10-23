@@ -260,6 +260,12 @@ fi
 }
 auth_user
 
+
+wget https://raw.githubusercontent.com/philemonnwanne/o0o0o/main/exercises/exe-07/script.sh
+
+chmod u+x script.sh
+
+
 # END BLOCK {SET AUTHORISED EMAIL ADDRESS}
 
 
