@@ -12,7 +12,7 @@ This script will setup all dependencies for carrying out the seventh exercise.
 
 - Spin up a fresh virtual machine in vagrant for the exercise
 - Make sure to have an app password for your desired gmail account ready
-- Create two files in your home directory, one for the [memory logger](https://github.com/philemonnwanne/o0o0o/blob/main/exercises/exe-07/exec_07.sh) and one for the [exec-07](https://github.com/philemonnwanne/o0o0o/blob/main/exes/exe-07/exec_07.sh) script
+- Create two files in your home directory, one for the [memory logger](https://github.com/philemonnwanne/o0o0o/blob/main/exercises/exe-07/script.sh) and one for the [exec-07](https://github.com/philemonnwanne/o0o0o/blob/main/exes/exe-07/exec_07.sh) script
 - Make sure each script is executable by running: `chmod u+x script_name.sh`
 
 With all of the above in place you can then run the [exec-07](https://github.com/philemonnwanne/o0o0o/blob/main/exercises/exe-07/exec_07.sh) script in your home directory and watch it do it's magic
