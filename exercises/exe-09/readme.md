@@ -13,7 +13,7 @@ Given the following IP address/CIDR: **193.16.20.35/29**
 To solve this you have to first figure out the subnet mask from the given CIDR (/29)
 
 > Note:
-Th CIDR indicates the total number of active bits (1's) which also indicates the network portion of the IP address while the 0's indicate the host portion of the network.
+The CIDR indicates the total number of active bits (1's) which also indicates the network portion of the IP address while the 0's indicate the host portion of the network.
 
 Converting it to binary then gives:
 
@@ -21,9 +21,9 @@ Converting it to binary then gives:
 
 **Host Portion:** 0's
 
-Netmask Binary: **11111111.11111111.11111111.11111000**
+**Netmask Binary:** 11111111.11111111.11111111.11111000
 
-<sub>Then inorder to convert the subnet mask address from binary to decimal apply the following formular:</sub>
+Then inorder to convert the subnet mask address from binary to decimal apply the following formular
 
 > Note: In the binary system there are only 1s and 0s. Depending on their position in the octet, they get different values. Each position is a power of 2. To get the decimal number you have to sum up those numbers.
 
