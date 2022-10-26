@@ -1,19 +1,20 @@
-![laravel-logo]()
+![laravel-logo](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/laravel-logo.svg)
 
+# Prerequites
+- I assume you know how to deploy a virtual machine 🖥
+- basic knowledge of the linux file system | ownership | permissions 🐧
+- basic knowledge of git 🚦
+- How to use linux editor `vim` or at least `nano` 📝
+- a cup of coffee ☕️
 
-- I assume you know how to deploy a virtual machine
-- How to use vim or at least nano
+### SETUP
 
-## REQUIREMENTS
+###### Install LAMP Stack on Debian 11
 - Virtual machine running Debian 11
 - Git, Apache, Wget, Curl
 - Php 8.1 and it's dependencies
 - Mysql/MariaDb Database
 - Composer
-
-### SETUP
-###### Install LAMP Stack on Debian 11
-
 
 ### Prerequisites to Install LAMP
 - Root access to your server or a sudo user
@@ -21,9 +22,10 @@
 
 ### Update the Package Installer
 
-We will be using the Apt installer to install new packages onto our server
+Make sure to switch to `root user`. We will be installing updating the apt repository before installing any package
 
 ```php
+sudo su
 apt update
 ```
 
