@@ -70,11 +70,9 @@ php -v
 
 ### 4. Install mySQL
 
-The next step is to install our database server on our virtual machine
-Follow steps below to Install mySQL 8.0 on Debian 11 Linux system
+The next step is to install our database server on our virtual machine. Follow steps below to Install mySQL 8.0 on your Debian 11 Linux system
 
-Add mySQL Dev apt repository. MySQL 8.0 packages are available on official mySQL Dev apt repository.
-
+Add mySQL Dev apt repository. MySQL 8.0 packages are available on official mySQL Dev apt repository
 ```
 apt update
 wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
@@ -82,7 +80,7 @@ wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
 
 > Note: If you get any error in this next 👇🏾 step, keep retrying the command until it's all good -- could be network issues 
 
-Install the release package.
+Install the release package
 ```
 apt update
 apt install ./mysql-apt-config_0.8.22-1_all.deb
