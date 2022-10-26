@@ -23,7 +23,7 @@
 - Root access to your server or a sudo user
 - Domain pointed to your server's IP
 
-### Update the Package Installer
+### 1. Update the Package Installer
 
 Make sure to switch to `root user`. We will be installing updating the apt repository before installing any package
 
@@ -32,7 +32,7 @@ sudo su
 apt update
 ```
 
-### Install the following packages (Apache2, Wget, Git, Curl)
+### 2. Install the following packages (Apache2, Wget, Git, Curl)
 
 Now that our installer is up to date, we can now install our web server Apache and the following packages on the server
 
@@ -40,7 +40,7 @@ Now that our installer is up to date, we can now install our web server Apache a
 apt install -y wget git apache2 curl
 ```
 
-### Install PHP
+### 3. Install PHP
 
 ###### Add the SURY PPA for PHP 8.1
 
@@ -68,7 +68,7 @@ php -v
 ```
 
 
-### Install mySQL
+### 4. Install mySQL
 
 The next step is to install our database server on our virtual machine
 Follow steps below to Install mySQL 8.0 on Debian 11 Linux system
@@ -126,7 +126,7 @@ The output should show that the service is enabled and running
 Congratulations!, mySQL was installed successfully
 
 
-#### Create a Database
+#### 5. Create a Database
 Login to mySQL  by executing the following command into MySQL:
 ```
 mysql -u root -p
@@ -141,7 +141,7 @@ CREATE DATABASE yourdatabase;
 
 
 
-### Install Laravel 8 Using Composer 
+### 6. Install Laravel 8 Using Composer 
 
 Switch to apache's document root
 ```php
@@ -170,7 +170,7 @@ Switch to your projects directory
 cd laravel 
 ```
 
-### Create a copy of your `.env` file
+### 7. Create a copy of your `.env` file
 
 `.env` files are not generally committed to source control for security reasons.
 
@@ -205,7 +205,7 @@ chmod -R 775 /var/www/altschool/laravel/storage
 chmod -R 775 /var/www/altschool/laravel/bootstrap/cache
 ```
 
-### Install Composer
+### 8. Install Composer
 
 Composer is a dependency manager for PHP used for managing dependencies and libraries required for PHP applications. To install `composer` run the following command: 
 
@@ -238,7 +238,7 @@ Composer version 2.4.3 2022-10-14 17:11:08
 ```
 
 
-### Install Composer Dependencies
+### 9. Install Composer Dependencies
 
 Whenever you clone a new Laravel project you must now install all of the project dependencies. This is what actually installs Laravel itself, among other necessary packages to get started. When we run composer, it checks the `composer.json` file which is submitted to the github repo and lists all of the composer (PHP) packages that your repo requires. Because these packages are constantly changing, the source code is generally not submitted to github, but instead we let composer handle these updates. So to install all this source code we run composer with the following command.
 
@@ -252,7 +252,7 @@ Generate the artisan key with the following command
 php artisan key:generate
 ```
 
-### Configure Apache to Host Laravel 8
+### 10. Configure Apache to Host Laravel 8
 
 Next, you'll need to create an Apache virtual host configuration file to host your Laravel application.
 ```php
@@ -296,7 +296,9 @@ Point your virtual domain to your IP address by editing the `/etc/hosts` file an
 nano /etc/hosts
 ```
 
-Sample below: DON'T FORGET TO USE YOUR OWN IP PLEASE
+> Also edit you host machines `etc/hosts` file and flush your `DNS cache` afterwards. Check the internet on how to do this for your specific OS
+
+Sample below: **DON'T FORGET TO USE YOUR OWN IP PLEASE**
 ```
 root@ubuntu:/# nano /etc/hosts
 127.0.0.1       localhost
@@ -310,7 +312,7 @@ ff02::2 ip6-allrouters
 
 
 ### Access Laravel
-Now, open your web browser and access the Laravel site by visiting your `virtual domain name` or IP`. You will be redirected to the Laravel default page. If you get a `404 | not found` error, make sure to do the following...
+Now, open your web browser and access the Laravel site by visiting your `virtual domain name` or `IP`. You will be redirected to the Laravel default page. If you get a `404 | not found` error, make sure to do the following...
 - move to your `routes` directory in your project directory which in my case is `/var/www/mini-project/laravel/routes`
 ```
 cd /var/www/mini-project/laravel/routes
