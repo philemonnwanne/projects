@@ -1,6 +1,6 @@
 ![laravel-logo](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/laravel-logo.svg)
 
-# Prerequites
+# Prerequisites
 - I assume you know how to deploy a virtual machine 🖥
 - basic knowledge of the linux file system | ownership | permissions 🐧
 - basic knowledge of git 🚦
@@ -391,4 +391,4 @@ Besides network connectivity related problems one major error that you might enc
 
 <span>The solution to the above is to make sure you assign 2gb (2048mb) of RAM and above to your vm</span>
 
-To go back to the top click [here](Prerequites)
+To go back to the top click [here](#Prerequisites)
