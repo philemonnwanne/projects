@@ -197,7 +197,7 @@ DB_PASSWORD=enter your mysql root password here
 ```
 After updating your .env file, press CTRL+X, Y, and Enter key to save the .env file.
 
-Next, change the permission and ownership of `altschool.me` and `laravel` directory
+Next, change the permission and ownership of `altschool` and `laravel` directory
 ```php
 chown -R www-data:www-data /var/www/altschool/laravel
 chmod -R 775 /var/www/altschool/laravel
