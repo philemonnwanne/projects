@@ -116,7 +116,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'yourNewPass';
 > Change `yourNewPass` to your desired password and do not remove the quotes and the semi-colon. In most cases you should also set up individual user accounts before working extensively with the database as well (optional). Also remember this password as you will have to use it in a coming step
 
 
-To verify that the MySQL server is running, type:
+To verify that the mySQL server is running, type:
 ```
 service mysql status
 ```
@@ -126,8 +126,8 @@ The output should show that the service is enabled and running
 Congratulations!, mySQL was installed successfully
 
 
-#### 5. Create a Database
-Login to mySQL  by executing the following command into MySQL:
+### 5. Create a Database
+Login to mySQL  by executing the following command into mySQL:
 ```
 mysql -u root -p
 ```
@@ -137,7 +137,7 @@ Replace the “your password” with the password you had set up before installa
 ```
 CREATE DATABASE yourdatabase;
 ```
-> replace `yourdatabase` with your desired database name. Once the database has been created, we can now exit MySQL using the command `exit;`. Also remember to add the semi-colons.
+> replace `yourdatabase` with your desired database name. Once the database has been created, we can now exit mySQL using the command `exit;`. Also remember to add the semi-colons.
 
 
 
