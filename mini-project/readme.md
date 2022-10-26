@@ -382,3 +382,13 @@ Note: All the above is just for the mini-project, for the exam you'll have to do
 
 ### Worthy Mentions
 
+
+
+### Errors
+Besides network connectivity related problems one major error that you might encounter might be related to;
+- mySQL hogging up your memory and not releasing it
+- mySQL service failinf to start or getting other processes killed
+
+<span>The solution to the above is to make sure you assign 2gb (2048mb) of RAM and above to your vm</span>
+
+To go back to the top click [here](Prerequites)
