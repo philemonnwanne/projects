@@ -356,4 +356,7 @@ Note: All the above is just for the mini-project, for the exam you'll have to do
 
 
 ### Helpful Videos
-- 
+- https://www.youtube.com/watch?v=a3JrPjEXTPI
+- https://www.youtube.com/watch?v=XAP86mB55xI
+- https://www.youtube.com/watch?v=K25411ukOh0
+- https://www.youtube.com/watch?v=poHRomqMjts
