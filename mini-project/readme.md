@@ -1,4 +1,10 @@
-## THIS PROJECT HAS THE FOLLOWING REQUIREMENTS
+![laravel-logo]()
+
+
+- I assume you know how to deploy a virtual machine
+- How to use vim or at least nano
+
+## REQUIREMENTS
 - Virtual machine running Debian 11
 - Git, Apache, Wget, Curl
 - Php 8.1 and it's dependencies
@@ -26,10 +32,7 @@ apt update
 Now that our installer is up to date, we can now install our web server Apache and the following packages on the server
 
 ```php
-apt install -y wget \ 
-git \
-apache2 \
-curl
+apt install -y wget git apache2 curl
 ```
 
 ### Install PHP
@@ -67,15 +70,15 @@ Switch to apache's document root
 cd /var/www/
 ```
 
-Create a directory to house your project, for the purpose of this project I will call mine `mini-project`
+Create a directory to house your laravel project, and for the purpose of this writing I will call mine `altschool`
 ```php
-mkdir mini-project
+mkdir altschool
 ```
 
 Switch to the directory created in the previous step and clone the [laravel project](https://github.com/f1amy/laravel-realworld-example-app.git) from github
 
 ```php
-cd mini-project
+cd altschool
 git clone https://github.com/f1amy/laravel-realworld-example-app.git
 ```
 
@@ -99,12 +102,12 @@ cp .env.example .env
 
 > This will create a copy of the `.env.example` file in your project and name the copy simply `.env`
 
-Next, change the permission and ownership of `mini-project` and `laravel` directory
+Next, change the permission and ownership of `altschool.me` and `laravel` directory
 ```php
-chown -R www-data:www-data /var/www/mini-project/laravel
-chmod -R 775 /var/www/mini-project/laravel
-chmod -R 775 /var/www/mini-project/laravel/storage
-chmod -R 775 /var/www/mini-project/laravel/bootstrap/cache
+chown -R www-data:www-data /var/www/altschool/laravel
+chmod -R 775 /var/www/altschool/laravel
+chmod -R 775 /var/www/altschool/laravel/storage
+chmod -R 775 /var/www/altschool/laravel/bootstrap/cache
 ```
 
 ### Install Composer
@@ -119,7 +122,7 @@ You should get the following output
 ```php
 All settings correct for using Composer
 Downloading...
-Composer (version 2.1.6) successfully installed to: /root/composer.phar
+Composer (version 2.4.3) successfully installed to: /root/composer.phar
 Use it: php composer.phar 
 ```
 
@@ -136,7 +139,7 @@ composer --version
 
 You should see the following output 
 ```php
-Composer version 2.1.6 2021-08-19 17:11:08
+Composer version 2.4.3 2022-10-14 17:11:08
 ```
 
 
@@ -157,18 +160,18 @@ php artisan key:generate
 
 Next, you'll need to create an Apache virtual host configuration file to host your Laravel application.
 ```php
-nano /etc/apache2/sites-available/mini-project.conf
+nano /etc/apache2/sites-available/altschool.conf
 ```
 
 Add the following lines
 ```php
 <VirtualHost *:80>
-    ServerAdmin admin@mini-project.alt
-    ServerName mini-project.alt
-    ServerAlias www.mini-project.alt
-    DocumentRoot /var/www/mini-project/laravel/public
+    ServerAdmin admin@altschool.me
+    ServerName altschool.me
+    ServerAlias www.altschool.me
+    DocumentRoot /var/www/altschool/laravel/public
     
-    <Directory /var/www/mini-project/laravel/public>
+    <Directory /var/www/altschool/laravel/public>
         Options Indexes MultiViews
         AllowOverride None
         Require all granted
@@ -181,26 +184,43 @@ Add the following lines
 
 Save and close the file and then enable the Apache rewrite module and activate the Laravel virtual host with the following command: 
 
-```php
+```
 a2enmod rewrite
-a2ensite mini-project.conf
+a2ensite altschool.conf
 ```
 
 Finally, reload the Apache service to apply the changes
 
-```php
+```
 systemctl reload apache2
+```
+
+Point your virtual domain to your IP address by editing the `/etc/hosts` file and adding your IP address and your desired virtual domain name which in my case is `altschool.me`.
+```
+nano /etc/hosts
+```
+
+Sample below: DON'T FORGET TO USE YOUR OWN IP PLEASE
+```
+root@ubuntu:/# nano /etc/hosts
+127.0.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+172.17.0.2      altschool.me
 ```
 
 
 ### Access Laravel
 Now, open your web browser and access the Laravel site by visiting your domain. You will be redirected to the Laravel default page. If you get a `404 | not found` error, make sure to do the following...
 - move to your `routes` directory in your project directory which in my case is `/var/www/mini-project/laravel/routes`
-```php
+```
 cd /var/www/mini-project/laravel/routes
 ```
 - look for a file name `web.php` and remove the comments on the block of code which starts with `Routes::` it should look something like the file below
-```php
+```
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -223,7 +243,7 @@ use Illuminate\Support\Facades\Route;
 
 ##### When you are done editing the file it should now look like what I have below
 
-```php
+```
 <?php
 
 use Illuminate\Support\Facades\Route;
