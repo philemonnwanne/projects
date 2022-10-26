@@ -126,6 +126,21 @@ The output should show that the service is enabled and running
 Congratulations!, mySQL was installed successfully
 
 
+#### Create a Database
+Login to mySQL  by executing the following command into MySQL:
+```
+mysql -u root -p
+```
+
+Replace the “your password” with the password you had set up before installation. Once we are logged in, we can now create a database using the following command:
+
+```
+CREATE DATABASE yourdatabase;
+```
+> replace `yourdatabase` with your desired database name. Once the database has been created, we can now exit MySQL using the command `exit;`. Also remember to add the semi-colons.
+
+
+
 ### Install Laravel 8 Using Composer 
 
 Switch to apache's document root
