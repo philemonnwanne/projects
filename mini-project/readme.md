@@ -352,7 +352,8 @@ Now you should be able to view the default laravel page
 Note: All the above is just for the mini-project, for the exam you'll have to do the following:
 - get a real/valid domain name and make sure to secure it: [how-to-install-lamp-apache-mysql-php-on-debian-11](https://www.cloudbooklet.com/how-to-install-lamp-apache-mysql-php-on-debian-11/)
 
-- test all api/endpoints that's in the project
+- test all api/endpoints that are in the project
 
 
-
+### Helpful Videos
+- 
