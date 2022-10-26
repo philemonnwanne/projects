@@ -381,7 +381,20 @@ Note: All the above is just for the mini-project, for the exam you'll have to do
 
 
 ### Worthy Mentions
+###### Pre-requisites for testing your api's/endpoints
 
+Make sure you're in the `/var/www/altschool/laravel` directory and run the following commands`
+
+```
+php artisan config:cache 
+php artisan migrate:fresh
+php artisan migrate --seed
+```
+
+To see a list of all possible endpoints which you can test, run the below command
+```
+php artisan route:list
+```
 
 
 ### Errors
