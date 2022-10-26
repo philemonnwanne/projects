@@ -4,7 +4,7 @@
 - I assume you know how to deploy a virtual machine 🖥
 - basic knowledge of the linux file system | ownership | permissions 🐧
 - basic knowledge of git 🚦
-- stable internet connection ☁️
+- stable internet connection (very important)☁️
 - How to use linux editor `vim` or at least `nano` 📝
 - a cup of coffee ☕️
 
