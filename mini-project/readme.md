@@ -8,7 +8,7 @@
 - How to use linux editor `vim` or at least `nano` 📝
 - a cup of coffee ☕️
 
-> If this mini-article doesn't work for you there are video guides below by `@Patrick` and `@Chukwuebuka` that can help deploy this project here [Helpful Videos](#Helpful-Videos)
+<span> If this mini-article doesn't work for you there are video guides below by `@Patrick` | `@Chukwuebuka` | `@Samson` that can help deploy this project here [Helpful Videos](#Helpful-Videos)</span>
 
 ### SETUP
 
