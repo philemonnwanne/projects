@@ -344,10 +344,15 @@ Route::get('/', function () {
 });
 ```
 
-### Encrypt your domain and make 
-Next if you have a valid domain name, we are going to encrypt it and make our traffic use SSL/TLS
-
-
-
+Now you should be able to view the default laravel page
 ### Rendered Page
 ![rendered-page-laravel](https://github.com/philemonnwanne/altschool-cloud-exercises/blob/main/Mini-Project/images/rendered-page.jpg)
+
+
+Note: All the above is just for the mini-project, for the exam you'll have to do the following:
+- get a real/valid domain name and make sure to secure it: [how-to-install-lamp-apache-mysql-php-on-debian-11](https://www.cloudbooklet.com/how-to-install-lamp-apache-mysql-php-on-debian-11/)
+
+- test all api/endpoints that's in the project
+
+
+
