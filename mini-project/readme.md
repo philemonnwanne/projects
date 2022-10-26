@@ -103,7 +103,7 @@ apt install mysql-server
 
 You will be asked to choose a password, choose a password that you can remember but you might have to change it later
 
-Despite the previous step, The default root password is blank (i.e., an empty string), not root. So you can just log in usinh: 
+Despite the previous step, the default root password is blank (i.e. an empty string), not root. So you can just log in using: 
  
 ```
 mysql -u root
