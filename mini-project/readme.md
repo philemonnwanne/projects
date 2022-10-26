@@ -8,7 +8,7 @@
 - How to use linux editor `vim` or at least `nano` 📝
 - a cup of coffee ☕️
 
-> If this mini-article doesn't work for you there are video guides below that can help deploy this project here [@helpful-videos](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project)
+> If this mini-article doesn't work for you there are video guides below that can help deploy this project here [Helpful Videos](#Helpful-Videos)
 
 ### SETUP
 
@@ -355,7 +355,7 @@ Note: All the above is just for the mini-project, for the exam you'll have to do
 - test all api/endpoints that are in the project
 
 
-### [Helpful Videos]()
+### Helpful-Videos
 - https://www.youtube.com/watch?v=a3JrPjEXTPI
 - https://www.youtube.com/watch?v=XAP86mB55xI
 - https://www.youtube.com/watch?v=K25411ukOh0
