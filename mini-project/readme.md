@@ -8,6 +8,8 @@
 - How to use linux editor `vim` or at least `nano` 📝
 - a cup of coffee ☕️
 
+> If this mini-article doesn't work for you there are video guides below that can help deploy this project here[]()
+
 ### SETUP
 
 ###### Install LAMP Stack on Debian 11
@@ -65,14 +67,13 @@ Once PHP is installed you can check the version using the following command.
 php -v
 ```
 
-### Install MySQL
+
+### Install mySQL
 
 The next step is to install our database server on our virtual machine
-Follow steps below to Install MySQL 8.0 on Debian 11/10/9 Linux system.
+Follow steps below to Install mySQL 8.0 on Debian 11 Linux system
 
-##### Step 1: Add MySQL Dev apt repository
-
-MySQL 8.0 packages are available on official MySQL Dev apt repository.
+Add mySQL Dev apt repository. MySQL 8.0 packages are available on official mySQL Dev apt repository.
 
 ```
 apt update
@@ -87,31 +88,43 @@ apt update
 apt install ./mysql-apt-config_0.8.22-1_all.deb
 ```
 
-Confirm addition of MySQL 8.0 repository as default when prompted
+Confirm addition of mySQL 8.0 repository as default when prompted
+![mysql-prompt-image](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/mysql-prompt.jpg)
 
+Select OK by pressing `Tab` and hit `Enter` (as shown in the image above)
 
-You'll get a We’re going to install MySQL version 8.0. Select OK by pressing Tab and hit Enter (as shown in the image above).
+> Note: If you get any error in this next 👇🏾 step, keep retrying the command until it's all good -- could be network issues 
 
-Now you can install MySQL.
-
-sudo apt update
-sudo apt install mysql-server
-Once the installation is completed, the MySQL service will start automatically. To verify that the MySQL server is running, type:
-
-
-sudo service mysql status
-The output should show that the service is enabled and running:
-
-
-
-After we define the root password, we will be asked several mySQL configuration questions. The answers you should input are next to the lines of code:
+Now you can install mySQL
 ```
-Remove anonymous users? [Y/n] y
-Disallow root login remotely? [Y/n] n
-Remove test database and access to it? [Y/n] y
-Reload privilege tables now? [Y/n] y
+apt update
+apt install mysql-server
 ```
-Congratulations, mySQL was installed successfully.
+
+You will be asked to choose a password, choose a password that you can remember but you might have to change it later
+
+Despite the previous step, The default root password is blank (i.e., an empty string), not root. So you can just log in usinh: 
+ 
+```
+mysql -u root
+```
+> You should obviously change your root password after installation by running
+ 
+```
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'yourNewPass';
+```
+> Change `yourNewPass` to your desired password and do not remove the quotes and the semi-colon. In most cases you should also set up individual user accounts before working extensively with the database as well (optional). Also rememver this password as you will have to use it in step 30
+
+
+To verify that the MySQL server is running, type:
+```
+service mysql status
+```
+
+The output should show that the service is enabled and running
+
+Congratulations!, mySQL was installed successfully
+
 
 ### Install Laravel 8 Using Composer 
 
