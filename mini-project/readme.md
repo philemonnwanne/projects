@@ -4,6 +4,7 @@
 - I assume you know how to deploy a virtual machine 🖥
 - basic knowledge of the linux file system | ownership | permissions 🐧
 - basic knowledge of git 🚦
+- stable internet connection ☁️
 - How to use linux editor `vim` or at least `nano` 📝
 - a cup of coffee ☕️
 
@@ -64,6 +65,53 @@ Once PHP is installed you can check the version using the following command.
 php -v
 ```
 
+### Install MySQL
+
+The next step is to install our database server on our virtual machine
+Follow steps below to Install MySQL 8.0 on Debian 11/10/9 Linux system.
+
+##### Step 1: Add MySQL Dev apt repository
+
+MySQL 8.0 packages are available on official MySQL Dev apt repository.
+
+```
+apt update
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+```
+
+> Note: If you get any error in this next 👇🏾 step, keep retrying the command until it's all good -- could be network issues 
+
+Install the release package.
+```
+apt update
+apt install ./mysql-apt-config_0.8.22-1_all.deb
+```
+
+Confirm addition of MySQL 8.0 repository as default when prompted
+
+
+You'll get a We’re going to install MySQL version 8.0. Select OK by pressing Tab and hit Enter (as shown in the image above).
+
+Now you can install MySQL.
+
+sudo apt update
+sudo apt install mysql-server
+Once the installation is completed, the MySQL service will start automatically. To verify that the MySQL server is running, type:
+
+
+sudo service mysql status
+The output should show that the service is enabled and running:
+
+
+
+After we define the root password, we will be asked several mySQL configuration questions. The answers you should input are next to the lines of code:
+```
+Remove anonymous users? [Y/n] y
+Disallow root login remotely? [Y/n] n
+Remove test database and access to it? [Y/n] y
+Reload privilege tables now? [Y/n] y
+```
+Congratulations, mySQL was installed successfully.
 
 ### Install Laravel 8 Using Composer 
 
@@ -103,6 +151,23 @@ cp .env.example .env
 ```
 
 > This will create a copy of the `.env.example` file in your project and name the copy simply `.env`
+
+Next, edit the `.env` file and define your database:
+```
+nano .env
+```
+
+`Note`: Configure your `.env` file just as it is in the output below, only make changes to the `DB_DATABASE` and `DB_PASSWORD` lines
+
+```php
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=enter the name of your database here
+DB_USERNAME=root
+DB_PASSWORD=enter your mysql root password here
+```
+After updating your .env file, press CTRL+X, Y, and Enter key to save the .env file.
 
 Next, change the permission and ownership of `altschool.me` and `laravel` directory
 ```php
@@ -194,7 +259,7 @@ a2ensite altschool.conf
 Finally, reload the Apache service to apply the changes
 
 ```
-systemctl reload apache2
+systemctl restart apache2
 ```
 
 Point your virtual domain to your IP address by editing the `/etc/hosts` file and adding your IP address and your desired virtual domain name which in my case is `altschool.me`.
