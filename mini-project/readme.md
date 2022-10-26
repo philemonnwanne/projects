@@ -275,7 +275,7 @@ Finally, reload the Apache service to apply the changes
 systemctl restart apache2
 ```
 
-Point your virtual domain to your IP address by editing the `/etc/hosts` file and adding your IP address and your desired virtual domain name which in my case is `altschool.me`.
+Point your virtual domain to your IP address by editing the `/etc/hosts` file and adding your IP address and your desired `virtual domain name` which in my case is `altschool.me`.
 ```
 nano /etc/hosts
 ```
@@ -294,7 +294,7 @@ ff02::2 ip6-allrouters
 
 
 ### Access Laravel
-Now, open your web browser and access the Laravel site by visiting your domain. You will be redirected to the Laravel default page. If you get a `404 | not found` error, make sure to do the following...
+Now, open your web browser and access the Laravel site by visiting your `virtual domain name` or IP`. You will be redirected to the Laravel default page. If you get a `404 | not found` error, make sure to do the following...
 - move to your `routes` directory in your project directory which in my case is `/var/www/mini-project/laravel/routes`
 ```
 cd /var/www/mini-project/laravel/routes
