@@ -246,7 +246,8 @@ Whenever you clone a new Laravel project you must now install all of the project
 composer install
 ```
 
-generate the artisan key with the following command
+Generate the artisan key with the following command 
+> (make sure you are in the `/var/www/altschool/laravel`) directory before executing any command that starts with `php artisan`
 ```php
 php artisan key:generate
 ```
@@ -375,3 +376,7 @@ Note: All the above is just for the mini-project, for the exam you'll have to do
 - https://www.youtube.com/watch?v=XAP86mB55xI
 - https://www.youtube.com/watch?v=K25411ukOh0
 - https://www.youtube.com/watch?v=poHRomqMjts
+
+
+### Worthy Mentions
+
