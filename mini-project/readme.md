@@ -111,6 +111,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'yourNewPass';
 ```
 > Change `yourNewPass` to your desired password and do not remove the quotes and the semi-colon. In most cases you should also set up individual user accounts before working extensively with the database as well (optional). Also remember this password as you will have to use it in a coming step
 
+we can now exit mySQL using the command `exit;`
 
 To verify that the mySQL server is running, type:
 ```
