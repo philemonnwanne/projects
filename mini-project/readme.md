@@ -312,9 +312,9 @@ ff02::2 ip6-allrouters
 
 ### Access Laravel
 Now, open your web browser and access the Laravel site by visiting your `virtual domain name` or `IP`. You will be redirected to the Laravel default page. If you get a `404 | not found` error, make sure to do the following...
-- move to your `routes` directory in your project directory which in my case is `/var/www/mini-project/laravel/routes`
+- move to your `routes` directory in your project directory which in my case is `/var/www/altschool/laravel/routes`
 ```
-cd /var/www/mini-project/laravel/routes
+cd /var/www/altschool/laravel/routes
 ```
 - look for a file name `web.php` and remove the comments on the block of code which starts with `Routes::` it should look something like the file below
 ```
