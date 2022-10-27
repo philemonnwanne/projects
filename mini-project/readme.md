@@ -224,10 +224,12 @@ mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 ```
 
-Next, verify the Composer version using the following command 
+Next, verify the Composer version using the following command and enter `yes` to any prompt that appears 
 ```php
 composer --version
 ```
+
+Say `yes` to any prompt that appears 
 
 You should see the following output 
 ```php
