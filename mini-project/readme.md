@@ -239,14 +239,14 @@ Composer version 2.4.3 2022-10-14 17:11:08
 
 ### 9. Install Composer Dependencies
 
-Whenever you clone a new Laravel project you must now install all of the project dependencies. This is what actually installs Laravel itself, among other necessary packages to get started. When we run composer, it checks the `composer.json` file which is submitted to the github repo and lists all of the composer (PHP) packages that your repo requires. Because these packages are constantly changing, the source code is generally not submitted to github, but instead we let composer handle these updates. So to install all this source code we run composer with the following command.
+Whenever you clone a new Laravel project you must now install all of the project dependencies. This is what actually installs Laravel itself, among other necessary packages to get started. When we run composer, it checks the `composer.json` file which is submitted to the github repo and lists all of the composer (PHP) packages that your repo requires. Because these packages are constantly changing, the source code is generally not submitted to github, but instead we let composer handle these updates. So to install all this source code we run composer with the following command and enter `yes` to any prompt that appears
 
 ```php
 composer install
 ```
 
 Generate the artisan key with the following command 
-> (make sure you are in the `/var/www/altschool/laravel`) directory before executing any command that starts with `php artisan`
+> make sure you are in the `/var/www/altschool/laravel` directory before executing any command that starts with `php artisan`
 ```php
 php artisan key:generate
 ```
