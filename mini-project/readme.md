@@ -326,8 +326,8 @@ Route::get('/', function () {
 ```
 
 Now you should be able to view the default laravel page
-### Rendered Page
-![rendered-page-laravel](https://github.com/philemonnwanne/altschool-cloud-exercises/blob/main/Mini-Project/images/rendered-page.jpg)
+#### rendered page
+![rendered-page-laravel](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/mini-proj.png)
 
 
 Note: Run the following commands to test ensure all endpoints are working as they should
@@ -338,6 +338,9 @@ php artisan routes:list
 ```
 
 - This will return a list of all the possible endpoints in the project and you can test them by visiting your domain name/the desired endpoint, or preferably using `postman`
+
+### apis/endpoints
+![rendered-page-laravel](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/endpoints.png)
 
 
 ### Helpful-Videos
