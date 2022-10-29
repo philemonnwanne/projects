@@ -109,8 +109,6 @@ service mysql status
 
 The output should show that the service is enabled and running
 
-Congratulations!, mySQL was installed successfully
-
 
 ### 5. Create a Database
 Login to mySQL  by executing the following command into mySQL:
