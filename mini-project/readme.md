@@ -37,7 +37,7 @@ apt update
 Now that our installer is up to date, we can now install our web server Apache and the following packages on the server
 
 ```php
-apt install -y wget git apache2 curl
+apt install -y wget git apache2 unzip curl
 ```
 
 ### 3. Install PHP
@@ -84,10 +84,11 @@ apt update
 apt install ./mysql-apt-config_0.8.22-1_all.deb
 ```
 
-Confirm addition of mySQL 8.0 repository as default when prompted
+<span>Confirm addition of mySQL 8.0 repository as default when prompted</span>
+
 ![mysql-prompt-image](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/mysql-prompt.jpg)
 
-Select OK by pressing `Tab` and hit `Enter` (as shown in the image above)
+Select OK by pressing `Tab` and hit `Enter` (as shown in the image above) - Would be done twice
 
 > Note: If you get any error in this next 👇🏾 step, keep retrying the command until it's all good -- could be network issues 
 
@@ -95,21 +96,9 @@ Now you can install mySQL
 ```
 apt update
 apt install mysql-server
-```
 
-You will be asked to choose a password, choose a password that you can remember but you might have to change it later
-
-Despite the previous step, the default root password is blank (i.e. an empty string), not root. So you can just log in using: 
- 
+<span>When prompted, enter your password and choose legacy authentication, but if you want to set strong password policies you can choose the recommended option</span>
 ```
-mysql -u root
-```
-> You should obviously change your root password after installation by running
- 
-```
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'yourNewPass';
-```
-> Change `yourNewPass` to your desired password and do not remove the quotes and the semi-colon. In most cases you should also set up individual user accounts before working extensively with the database as well (optional). Also remember this password as you will have to use it in a coming step
 
 we can now exit mySQL using the command `exit;`
 
@@ -129,7 +118,7 @@ Login to mySQL  by executing the following command into mySQL:
 mysql -u root -p
 ```
 
-Replace the “your password” with the password you had set up before installation. Once we are logged in, we can now create a database using the following command:
+Replace the “your password” with the password you had set up during installation. Once we are logged in, we can now create a database using the following command:
 
 ```
 CREATE DATABASE yourdatabase;
@@ -185,6 +174,8 @@ nano .env
 `Note`: Configure your `.env` file just as it is in the output below, only make changes to the `DB_DATABASE` and `DB_PASSWORD` lines
 
 ```php
+APP_NAME="your app name" (call it anything you wish)
+APP_URL=your machine's IP addr eg. (192.168.10.22)
 DB_CONNECTION=mysql
 DB_HOST=localhost
 DB_PORT=3306
@@ -224,12 +215,12 @@ mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 ```
 
-Next, verify the Composer version using the following command and enter `yes` to any prompt that appears 
+Next, verify the Composer version using either of the following commands and enter `yes` to any prompt that appears 
 ```php
 composer --version
-```
 
-Say `yes` to any prompt that appears 
+composer
+```
 
 You should see the following output 
 ```php
@@ -239,7 +230,9 @@ Composer version 2.4.3 2022-10-14 17:11:08
 
 ### 9. Install Composer Dependencies
 
-Whenever you clone a new Laravel project you must now install all of the project dependencies. This is what actually installs Laravel itself, among other necessary packages to get started. When we run composer, it checks the `composer.json` file which is submitted to the github repo and lists all of the composer (PHP) packages that your repo requires. Because these packages are constantly changing, the source code is generally not submitted to github, but instead we let composer handle these updates. So to install all this source code we run composer with the following command and enter `yes` to any prompt that appears
+<span>Whenever you clone a new Laravel project you must now install all of the project dependencies. This is what actually installs Laravel itself, among other necessary packages to get started. When we run composer, it checks the `composer.json` file which is submitted to the github repo and lists all of the composer (PHP) packages that your repo requires. Because these packages are constantly changing, the source code is generally not submitted to github, but instead we let composer handle these updates.</span>
+
+So to install all this source code run composer with the following command and enter `yes` to any prompt that appears
 
 ```php
 composer install
@@ -250,6 +243,14 @@ Generate the artisan key with the following command
 ```php
 php artisan key:generate
 ```
+
+Also run the following php artisan commands
+```
+sudo php artisan config:cache
+sudo php artisan migrate:fresh
+sudo php artisan migrate --seed
+```
+
 
 ### 10. Configure Apache to Host Laravel 8
 
@@ -277,10 +278,11 @@ Add the following lines
 </VirtualHost>
 ```
 
-Save and close the file and then enable the Apache rewrite module and activate the Laravel virtual host with the following command: 
+Save and close the file and then enable the Apache rewrite module and activate the Laravel virtual host with the following commands: 
 
 ```
 a2enmod rewrite
+a2dissite 000-default.conf
 a2ensite altschool.conf
 ```
 
@@ -290,71 +292,33 @@ Finally, reload the Apache service to apply the changes
 systemctl restart apache2
 ```
 
-Point your virtual domain to your IP address by editing the `/etc/hosts` file and adding your IP address and your desired `virtual domain name` which in my case is `altschool.me`.
-```
-nano /etc/hosts
-```
-
-> Also edit you host machines `etc/hosts` file and flush your `DNS cache` afterwards. Check the internet on how to do this for your specific OS
-
-Sample below: **DON'T FORGET TO USE YOUR OWN IP PLEASE**
-```
-root@ubuntu:/# nano /etc/hosts
-127.0.0.1       localhost
-::1     localhost ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-ff00::0 ip6-mcastprefix
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-172.17.0.2      altschool.me
-```
-
 
 ### Access Laravel
-Now, open your web browser and access the Laravel site by visiting your `virtual domain name` or `IP`. You will be redirected to the Laravel default page. If you get a `404 | not found` error, make sure to do the following...
+
 - move to your `routes` directory in your project directory which in my case is `/var/www/altschool/laravel/routes`
 ```
 cd /var/www/altschool/laravel/routes
 ```
-- look for a file name `web.php` and remove the comments on the block of code which starts with `Routes::` it should look something like the file below
+- look for a file named `web.php` and remove the comments on the block of code which starts with `Routes::`
+
+```
+nano web.php
+```
+
+The code block that we want to alter in the file should look similar to what we have below
+
 ```
 <?php
-
-use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 /*Route::get('/', function () {
     return view('welcome');
 });*/
 ```
 
-##### When you are done editing the file it should now look like what I have below
+##### When you are done editing the file it should now look like this 👇🏾
 
 ```
 <?php
-
-use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -366,10 +330,14 @@ Now you should be able to view the default laravel page
 ![rendered-page-laravel](https://github.com/philemonnwanne/altschool-cloud-exercises/blob/main/Mini-Project/images/rendered-page.jpg)
 
 
-Note: All the above is just for the mini-project, for the exam you'll have to do the following:
-- get a real/valid domain name and make sure to secure it: [how-to-install-lamp-apache-mysql-php-on-debian-11](https://www.cloudbooklet.com/how-to-install-lamp-apache-mysql-php-on-debian-11/)
+Note: Run the following commands to test ensure all endpoints are working as they should
 
-- test all api/endpoints that are in the project
+```
+cd /var/www/altschool/laravel
+php artisan routes:list
+```
+
+- This will return a list of all the possible endpoints in the project and you can test them by visiting your domain name/the desired endpoint, or preferably using `postman`
 
 
 ### Helpful-Videos
@@ -379,27 +347,10 @@ Note: All the above is just for the mini-project, for the exam you'll have to do
 - https://www.youtube.com/watch?v=poHRomqMjts
 
 
-### Worthy Mentions
-###### Pre-requisites for testing your api's/endpoints
-
-Make sure you're in the `/var/www/altschool/laravel` directory and run the following commands`
-
-```
-php artisan config:cache 
-php artisan migrate:fresh
-php artisan migrate --seed
-```
-
-To see a list of all possible endpoints which you can test, run the below command
-```
-php artisan route:list
-```
-
-
 ### Errors
 Besides network connectivity related problems one major error that you might encounter might be related to;
 - mySQL hogging up your memory and not releasing it
-- mySQL service failinf to start or getting other processes killed
+- mySQL service failing to start or getting other processes killed
 
 <span>The solution to the above is to make sure you assign 2gb (2048mb) of RAM and above to your vm</span>
 
