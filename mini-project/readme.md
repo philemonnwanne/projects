@@ -218,7 +218,6 @@ chmod +x /usr/local/bin/composer
 Next, verify the Composer version using either of the following commands and enter `yes` to any prompt that appears 
 ```php
 composer --version
-
 composer
 ```
 
@@ -307,7 +306,7 @@ nano web.php
 
 The code block that we want to alter in the file should look similar to what we have below
 
-```
+```php
 <?php
 
 /*Route::get('/', function () {
@@ -317,7 +316,7 @@ The code block that we want to alter in the file should look similar to what we 
 
 ##### When you are done editing the file it should now look like this 👇🏾
 
-```
+```php
 <?php
 
 Route::get('/', function () {
@@ -331,7 +330,7 @@ Now you should be able to view the default laravel page
 
 Note: Run the following commands to test that all endpoints are working as they should
 
-```
+```php
 cd /var/www/altschool/laravel
 php artisan routes:list
 ```
