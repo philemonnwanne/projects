@@ -268,7 +268,7 @@ Add the following lines
     
     <Directory /var/www/altschool/laravel/public>
         Options Indexes MultiViews
-        AllowOverride None
+        AllowOverride All
         Require all granted
     </Directory>
     
