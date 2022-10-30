@@ -88,7 +88,7 @@ apt install ./mysql-apt-config_0.8.22-1_all.deb
 
 ![mysql-prompt-image](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/mysql-prompt.jpg)
 
-Select OK by pressing `Tab` and hit `Enter` (as shown in the image above) - Would be done twice
+Use the down arrow key to choose OK, then press `Tab` and hit `Enter` (as shown in the image above) - Would be done twice
 
 > Note: If you get any error in this next 👇🏾 step, keep retrying the command until it's all good -- could be network issues 
 
@@ -97,7 +97,7 @@ Now you can install mySQL
 apt update
 apt install mysql-server
 ```
-<samp>When prompted, enter your password and choose legacy authentication, but if you want to set strong password policies you can choose the recommended option</samp>
+<samp>When prompted, enter your root password and choose legacy authentication</samp>
 
 we can now exit mySQL using the command `exit;`
 
@@ -182,13 +182,6 @@ DB_PASSWORD=enter your mysql root password here
 ```
 After updating your .env file, press CTRL+X, Y, and Enter key to save the .env file.
 
-Next, change the permission and ownership of `altschool` and `laravel` directory
-```php
-chown -R www-data:www-data /var/www/altschool/laravel
-chmod -R 775 /var/www/altschool/laravel
-chmod -R 775 /var/www/altschool/laravel/storage
-chmod -R 775 /var/www/altschool/laravel/bootstrap/cache
-```
 
 ### 8. Install Composer
 
@@ -263,9 +256,7 @@ Add the following lines
     DocumentRoot /var/www/altschool/laravel/public
     
     <Directory /var/www/altschool/laravel/public>
-        Options Indexes MultiViews
         AllowOverride All
-        Require all granted
     </Directory>
     
     ErrorLog ${APACHE_LOG_DIR}/error.log
@@ -279,6 +270,14 @@ Save and close the file and then enable the Apache rewrite module and activate t
 a2enmod rewrite
 a2dissite 000-default.conf
 a2ensite altschool.conf
+```
+
+Next, change the permission and ownership of `altschool` and `laravel` directory
+```php
+chown -R www-data:www-data /var/www/altschool/laravel
+chmod -R 775 /var/www/altschool/laravel
+chmod -R 775 /var/www/altschool/laravel/storage
+chmod -R 775 /var/www/altschool/laravel/bootstrap/cache
 ```
 
 Finally, reload the Apache service to apply the changes
