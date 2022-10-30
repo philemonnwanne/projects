@@ -276,8 +276,6 @@ Next, change the permission and ownership of `altschool` and `laravel` directory
 ```php
 chown -R www-data:www-data /var/www/altschool/laravel
 chmod -R 775 /var/www/altschool/laravel
-chmod -R 775 /var/www/altschool/laravel/storage
-chmod -R 775 /var/www/altschool/laravel/bootstrap/cache
 ```
 
 Finally, reload the Apache service to apply the changes
