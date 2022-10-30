@@ -96,9 +96,8 @@ Now you can install mySQL
 ```
 apt update
 apt install mysql-server
-
-<span>When prompted, enter your password and choose legacy authentication, but if you want to set strong password policies you can choose the recommended option</span>
 ```
+<samp>When prompted, enter your password and choose legacy authentication, but if you want to set strong password policies you can choose the recommended option</samp>
 
 we can now exit mySQL using the command `exit;`
 
@@ -213,10 +212,9 @@ mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 ```
 
-Next, verify the Composer version using either of the following commands and enter `yes` to any prompt that appears 
+Next, verify the Composer version the following command and enter `yes` to any prompt that appears 
 ```php
 composer --version
-composer
 ```
 
 You should see the following output 
