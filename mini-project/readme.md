@@ -335,7 +335,7 @@ This will return a list of all the possible endpoints in the project and you can
 
 ### apis/endpoints
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/mini-project/img/endpoints.png">
+  <source media="(prefers-color-scheme: dark)" srcset="/mini-project/img/endpoints-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="/mini-project/img/endpoints.png">
   <img alt="Shows the endpoints in light mode and in dark mode." src="/mini-project/img/endpoints.png">
 </picture>
