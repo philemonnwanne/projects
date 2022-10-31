@@ -1,4 +1,4 @@
-![laravel-logo](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/laravel-logo.svg)
+![laravel-logo](/mini-project/img/laravel-logo.svg)
 
 # Prerequisites
 - I assume you know how to deploy a virtual machine 🖥
@@ -86,7 +86,8 @@ apt install ./mysql-apt-config_0.8.22-1_all.deb
 
 <span>Confirm addition of mySQL 8.0 repository as default when prompted</span>
 
-![mysql-prompt-image](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/mysql-prompt.jpg)
+
+![mysql-prompt-image](/mini-project/img/mysql-prompt.png)
 
 Use the down arrow key to choose OK, then press `Tab` and hit `Enter` (as shown in the image above) - Would be done twice
 
@@ -232,16 +233,14 @@ mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 ```
 
-Next, verify the Composer version the following command and enter `yes` to any prompt that appears 
+Next, run the following command and enter `yes` to any prompt that appears 
 ```php
-composer --version
+composer
 ```
 
 You should see the following output 
-![laravel-logo](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/composer.png)
-```php
-Composer version 2.4.3 2022-10-14 17:11:08
-```
+
+![laravel-logo](/mini-project/img/composer.png)
 
 
 ### 9. Install Composer Dependencies
@@ -317,7 +316,7 @@ systemctl restart apache2
 
 Now you should be able to view the default laravel page
 #### rendered page
-![rendered-page-laravel](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/mini-proj.png)
+![rendered-page-laravel](/mini-project/img/mini-proj.png)
 
 Note: Run the following commands to test that all endpoints are working as they should
 
@@ -329,7 +328,7 @@ php artisan route:list
 This will return a list of all the possible endpoints in the project and you can test them by visiting your `domain name/the desired endpoint` or preferably using `postman`
 
 ### apis/endpoints
-![rendered-page-laravel](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/endpoints.png)
+![rendered-page-laravel](/mini-project/img/endpoints.png)
 
 
 ### Helpful-Videos
