@@ -351,8 +351,8 @@ This will return a list of all the possible endpoints in the project and you can
 
 ### Errors
 Besides network connectivity related problems one major error that you might encounter might be related to;
-- [ ] mySQL hogging up your memory and not releasing it
-- [ ] mySQL service failing to start or getting other processes killed
+- [x] mySQL hogging up your memory and not releasing it
+- [ ] https://mySQL service failing to start or getting other processes killed
 
 <span>The solution to the above is to make sure you assign 2gb (2048mb) of RAM and above to your vm</span>
 
