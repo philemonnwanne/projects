@@ -124,7 +124,7 @@ CREATE DATABASE yourdatabase;
 
 
 
-### 6. Install Laravel 8 Using Composer 
+### 6. Clone the project repo
 
 Switch to apache's document root
 ```php
@@ -238,6 +238,7 @@ composer --version
 ```
 
 You should see the following output 
+![laravel-logo](https://github.com/philemonnwanne/o0o0o/blob/main/mini-project/img/composer.png)
 ```php
 Composer version 2.4.3 2022-10-14 17:11:08
 ```
