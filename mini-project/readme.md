@@ -316,7 +316,13 @@ systemctl restart apache2
 
 Now you should be able to view the default laravel page
 #### rendered page
-![rendered-page-laravel](/mini-project/img/mini-proj.png)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="/mini-project/img/mini-proj-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="/mini-project/img/mini-proj.png">
+  <img alt="Shows the rendered page in light mode and in dark mode." src="/mini-project/img/mini-proj.png">
+</picture>
+
 
 Note: Run the following commands to test that all endpoints are working as they should
 
@@ -328,7 +334,12 @@ php artisan route:list
 This will return a list of all the possible endpoints in the project and you can test them by visiting your `domain name/the desired endpoint` or preferably using `postman`
 
 ### apis/endpoints
-![rendered-page-laravel](/mini-project/img/endpoints.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="/mini-project/img/endpoints.png">
+  <source media="(prefers-color-scheme: light)" srcset="/mini-project/img/endpoints.png">
+  <img alt="Shows the endpoints in light mode and in dark mode." src="/mini-project/img/endpoints.png">
+</picture>
+
 
 
 ### Helpful-Videos
