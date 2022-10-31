@@ -153,7 +153,34 @@ Switch to your projects directory
 cd laravel 
 ```
 
-### 7. Create a copy of your `.env` file
+
+Run the following command to edit the `web.php` file in the routes directory
+```
+nano /var/www/altschool/laravel/routes/web.php
+```
+
+The code block that we want to alter in the file should look similar to what we have below
+
+```php
+<?php
+
+/*Route::get('/', function () {
+    return view('welcome');
+});*/
+```
+
+When you are done editing the file it should now look like this 👇🏾
+
+```php
+<?php
+
+Route::get('/', function () {
+    return view('welcome');
+});
+```
+
+
+### 7. Create and edit the `.env` file
 
 `.env` files are not generally committed to source control for security reasons.
 
@@ -180,7 +207,7 @@ DB_DATABASE=enter the name of your database here
 DB_USERNAME=root
 DB_PASSWORD=enter your mysql root password here
 ```
-After updating your .env file, press CTRL+X, Y, and Enter key to save the .env file.
+After updating your .env file, save the changes and exit
 
 
 ### 8. Install Composer
@@ -286,36 +313,6 @@ systemctl restart apache2
 
 
 ### Access Laravel
-
-- move to your `routes` directory in your project directory which in my case is `/var/www/altschool/laravel/routes`
-```
-cd /var/www/altschool/laravel/routes
-```
-- look for a file named `web.php` and remove the comments on the block of code which starts with `Routes::`
-
-```
-nano web.php
-```
-
-The code block that we want to alter in the file should look similar to what we have below
-
-```php
-<?php
-
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-```
-
-##### When you are done editing the file it should now look like this 👇🏾
-
-```php
-<?php
-
-Route::get('/', function () {
-    return view('welcome');
-});
-```
 
 Now you should be able to view the default laravel page
 #### rendered page
