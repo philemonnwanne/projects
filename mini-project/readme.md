@@ -325,7 +325,7 @@ Note: Run the following commands to test that all endpoints are working as they 
 
 ```php
 cd /var/www/altschool/laravel
-php artisan routes:list
+php artisan route:list
 ```
 
 This will return a list of all the possible endpoints in the project and you can test them by visiting your `domain name/the desired endpoint` or preferably using `postman`
