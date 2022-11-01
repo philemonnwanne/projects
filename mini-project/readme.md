@@ -261,9 +261,9 @@ php artisan key:generate
 
 Also run the following php artisan commands
 ```
-sudo php artisan config:cache
-sudo php artisan migrate:fresh
-sudo php artisan migrate --seed
+php artisan config:cache
+php artisan migrate:fresh
+php artisan migrate --seed
 ```
 
 
