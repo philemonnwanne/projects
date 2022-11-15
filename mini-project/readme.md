@@ -149,12 +149,6 @@ Rename the cloned git repo to whatever you wish to call your project, for my use
 mv laravel-realworld-example-app laravel
 ```
 
-Switch to your projects directory
-```php
-cd laravel 
-```
-
-
 Run the following command to edit the `web.php` file in the routes directory
 ```
 nano /var/www/altschool/laravel/routes/web.php
@@ -184,6 +178,11 @@ Route::get('/', function () {
 ### 7. Create and edit the `.env` file
 
 `.env` files are not generally committed to source control for security reasons.
+
+Switch to your projects directory
+```php
+cd /var/www/altschool/laravel 
+```
 
 ```php
 cp .env.example .env
@@ -255,6 +254,12 @@ composer install
 
 Generate the artisan key with the following command 
 > make sure you are in the `/var/www/altschool/laravel` directory before executing any command that starts with `php artisan`
+
+Switch to your projects directory
+```php
+cd /var/www/altschool/laravel 
+```
+
 ```php
 php artisan key:generate
 ```
@@ -350,7 +355,8 @@ This will return a list of all the possible endpoints in the project and you can
 
 
 ### Errors
-Besides network connectivity related problems one major error that you might encounter might be related to;
+Besides network connectivity related problems one major error that you might encounter might be related to:
+
 - [x] mySQL hogging up your memory and not releasing it
 - [ ] https://mySQL service failing to start or getting other processes killed
 
