@@ -372,12 +372,9 @@ If you like Certbot, please consider supporting our work by:
 You should now have your certificates. 
 ```
 
-Confirm that Certbot worked
-To confirm that your site is set up properly, visit https://your_`domain/ in your browser and look for the lock icon in the URL bar.
+### Confirm that Certbot worked
 
-
-### Access Laravel
-Now, open your web browser and access the Laravel site by visiting your domain. You will be redirected to the Laravel default page
+To confirm that your site is set up properly, visit `https://your_domain` in your browser and look for the lock icon in the URL bar. You will be redirected to the Laravel default page
 
 
 #### Rendered Page
