@@ -317,10 +317,70 @@ systemctl restart apache2
 ```
 
 
-### Access Laravel
+### Secure your Site
 
-Now you should be able to view the default laravel page
-#### rendered page
+Next if you have a valid domain name, we are going to encrypt it and make our traffic use SSL/TLS
+
+##### Install snapd
+
+Ensure that your version of snapd is up to date. Execute the following instructions on the command line on the machine to ensure that you have the latest version of snapd.
+
+```php
+snap install core; snap refresh core
+```
+
+##### Install Certbot
+
+Run this command on the command line on the machine to install Certbot.
+
+```php
+snap install --classic certbot
+```
+
+##### Link the Certbot command
+
+Finally, you can link the certbot command from the snap install directory to your path, so you’ll be able to run it by just typing certbot.
+
+```php
+ln -s /snap/bin/certbot /usr/bin/certbot
+```
+
+##### Running Certbot
+
+Certbot needs to answer a cryptographic challenge issued by the Let’s Encrypt API in order to prove we control our domain. It uses ports 80 (HTTP) or 443 (HTTPS) to accomplish this. We can now run Certbot to get our certificate. We’ll use the --standalone option to tell Certbot to handle the challenge using its own built-in web server. Finally, the -d flag is used to specify the domain you’re requesting a certificate for. You can add multiple -d options to cover multiple domains in one certificate.
+
+```php
+certbot certonly --standalone -d your_domain
+```
+
+When running the command, you will be prompted to enter an email address and agree to the terms of service. After doing so, you should see a message telling you the process was successful and where your certificates are stored:
+
+##### Output
+```php
+IMPORTANT NOTES:
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/your_domain/fullchain.pem
+Key is saved at: /etc/letsencrypt/live/your_domain/privkey.pem
+This certificate expires on 2022-02-10.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+* Donating to ISRG / Let's Encrypt: https://letsencrypt.org/donate
+* Donating to EFF: https://eff.org/donate-le
+You should now have your certificates. 
+```
+
+Confirm that Certbot worked
+To confirm that your site is set up properly, visit https://your_`domain/ in your browser and look for the lock icon in the URL bar.
+
+
+### Access Laravel
+Now, open your web browser and access the Laravel site by visiting your domain. You will be redirected to the Laravel default page
+
+
+#### Rendered Page
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="/mini-project/img/mini-proj-dark.png">
@@ -338,7 +398,7 @@ php artisan route:list
 
 This will return a list of all the possible endpoints in the project and you can test them by visiting your `domain name/the desired endpoint` or preferably using `postman`
 
-### apis/endpoints
+#### API's/Endpoints
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="/mini-project/img/endpoints-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="/mini-project/img/endpoints.png">
