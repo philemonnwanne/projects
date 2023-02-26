@@ -1,0 +1,42 @@
+- name: create a public subnet for first az
+  amazon.aws.ec2_vpc_subnet:
+    vpc_id: "{{ vpc.vpc.id }}"
+    state: present
+    az: "{{ pub_az_01 }}"
+    cidr: "{{ pub_az_01_cidr }}"
+    map_public: true
+    tags:
+      Name: "{{ pub_sub_01 }}"
+  register: pub_az_01_use1a
+
+- name: create a public subnet for second az
+  amazon.aws.ec2_vpc_subnet:
+    vpc_id: "{{ vpc.vpc.id }}"
+    state: present
+    az: "{{ pub_az_02 }}"
+    cidr: "{{ pub_az_02_cidr }}"
+    map_public: true
+    tags:
+      Name: "{{ pub_sub_02 }}"
+  register: pub_az_02_use1b
+
+- name: create a private subnet for first az
+  amazon.aws.ec2_vpc_subnet:
+    vpc_id: "{{ vpc.vpc.id }}"
+    state: present
+    az: "{{ priv_az_01 }}"
+    cidr: "{{ priv_az_01_cidr }}"
+    tags:
+      Name: "{{ priv_sub_01 }}"
+  register: priv_sub_01_use1a
+
+- name: create a private subnet for second az
+  amazon.aws.ec2_vpc_subnet:
+    vpc_id: "{{ vpc.vpc.id }}"
+    state: present
+    az: "{{ priv_az_02 }}"
+    cidr: "{{ priv_az_02_cidr }}"
+    tags:
+      Name: "{{ priv_sub_02 }}"
+  register: priv_sub_02_use1b
+

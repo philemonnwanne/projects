@@ -1,0 +1,17 @@
+---
+- name: create a directory if it does not exist
+  ansible.builtin.file:
+    path: "{{ document_root }}"
+    state: directory
+    mode: "0755"
+
+- name: copy web application files
+  ansible.builtin.copy:
+    src: files/build/
+    dest: "{{ document_root }}"
+    mode: "0644"
+
+- name: create an nginx configuration file
+  ansible.builtin.template:
+    src: philemonnwanne.me.j2
+    dest: "{{ nginx_conf_file }}"

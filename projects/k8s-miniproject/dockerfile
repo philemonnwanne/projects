@@ -1,0 +1,13 @@
+# Download base/parent image ubuntu:20.04 from which we build
+FROM nginx:latest
+
+# Identify the maintainer of this image
+LABEL maintainer="Philemon Nwanne <philemonnwanne@gmail.com>"
+LABEL version="1.0"
+LABEL description=""
+
+# Set the environment variable.
+ENV container=docker
+
+# copy everything in the project into the container
+COPY build/ /usr/share/nginx/html

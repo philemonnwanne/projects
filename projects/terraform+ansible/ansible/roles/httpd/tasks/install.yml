@@ -1,0 +1,10 @@
+---
+- name: update the repository cache and install the latest version of package "httpd"
+  ansible.builtin.yum:
+    pkg:
+    - httpd
+    - curl
+    - unzip
+    state: latest
+    update_cache: yes
+  notify: start httpd svc

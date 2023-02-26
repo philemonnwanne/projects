@@ -1,0 +1,9 @@
+---
+- name: create an ec2 launch template
+  community.aws.ec2_launch_template:
+    name: webserver-launch-template
+    region: "{{ aws_region }}"
+    image_id: "{{ ubuntu_jammy }}"
+    key_name: my-key
+    instance_type: t2.micro
+    security_group_ids: "{{ webserver_sgrp.group_id }}"

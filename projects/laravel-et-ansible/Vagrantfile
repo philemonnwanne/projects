@@ -1,0 +1,71 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+
+  # Custom configuration for machine 1 (server)
+  config.vm.define "server" do |server|
+    server.vm.hostname = "server"
+    # Create a private network
+    server.vm.network "private_network", ip: "192.168.56.10"
+    server.vm.network "forwarded_port", guest: 80, host: 8081
+    # Custom docker configuration
+    server.vm.provider :docker do |dock|
+      # this is where your Dockerfile lives
+      dock.image = "philemonnwanne/ubuntu-mod:20.04"
+      # Make sure it sets up ssh with the Dockerfile
+      # Vagrant is pretty dependent on ssh
+      dock.has_ssh = true
+      # Configure Docker to allow access to more resources
+      dock.privileged = true
+      dock.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
+      dock.create_args = ["--cgroupns=host"]
+    end
+    server.vm.provision "shell", inline: "echo STARTED server_SERVER"
+    # server.vm.provision "shell", path: "server.sh"
+  end
+
+  # Custom configuration for machine 2 (client)
+  config.vm.define "client" do |client|
+    client.vm.hostname = "client"
+    # Create a private network
+    client.vm.network "private_network", ip: "192.168.56.11"
+    client.vm.network "forwarded_port", guest: 80, host: 8082
+    # Custom docker configuration
+    client.vm.provider :docker do |dock|
+      # this is where your Dockerfile lives
+      dock.image = "philemonnwanne/ubuntu-mod:20.04"
+      # Make s  ure it sets up ssh with the Dockerfile
+      # Vagrant is pretty dependent on ssh
+      dock.has_ssh = true
+      # Configure Docker to allow access to more resources
+      dock.privileged = true
+      dock.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
+      dock.create_args = ["--cgroupns=host"]
+    end
+    client.vm.provision "shell", inline: "echo STARTED client_SERVER"
+    # client.vm.provision "shell", path: "client.sh"
+  end
+  
+    # # Custom configuration for machine 3 (extra-server )
+    # config.vm.define "server-02" do |server|
+    #   server-02.vm.hostname = "server-02"
+    #   # Create a private network
+    #   server-02.vm.network "private_network", ip: "192.168.56.11"
+    #   server-02.vm.network "forwarded_port", guest: 80, host: 8082
+    #   # Custom docker configuration
+    #   server-02.vm.provider :docker do |dock|
+    #     # this is where your Dockerfile lives
+    #     dock.image = "philemonnwanne/ubuntu-mod:20.04"
+    #     # Make sure it sets up ssh with the Dockerfile
+    #     # Vagrant is pretty dependent on ssh
+    #     dock.has_ssh = true
+    #     # Configure Docker to allow access to more resources
+    #     dock.privileged = true
+    #     dock.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
+    #     dock.create_args = ["--cgroupns=host"]
+    #   end
+    #   server.vm.provision "shell", inline: "echo STARTED server_SERVER"
+    #   # server.vm.provision "shell", path: "server.sh"
+    # end
+
+end

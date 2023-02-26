@@ -1,0 +1,10 @@
+---
+- name: script to install static page
+  ansible.builtin.script: ../files/init-script.sh
+  args:
+    chdir: /home/ec2-user
+  notify: restart httpd svc
+
+- name: set timezone to Africa/Lagos
+  timezone:
+    name: Africa/Lagos

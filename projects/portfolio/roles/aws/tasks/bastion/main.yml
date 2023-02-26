@@ -1,0 +1,7 @@
+# tasks for /roles/aws/tasks/bastion
+---
+- name: create a bastion host
+  import_tasks: bastion.yml
+
+# - name: link the bastion host to the private route table
+#   import_tasks: bastion_route.yml

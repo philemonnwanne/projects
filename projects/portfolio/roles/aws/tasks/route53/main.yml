@@ -1,0 +1,18 @@
+---
+- name: create a public hosted zone with tags
+  amazon.aws.route53_zone:
+    zone: philemonnwanne.me
+    tags:
+        Owner: philemon nwanne
+  register: zone
+
+- name: add an alias record that points to an amazon ALB
+  amazon.aws.route53:
+    state: present
+    zone: philemonnwanne.me
+    record: www.philemonnwanne.me
+    type: A
+    value: "{{ alb.dns_name }}"
+    alias: true
+    alias_hosted_zone_id: "{{ alb.canonical_hosted_zone_id }}"
+    overwrite: true

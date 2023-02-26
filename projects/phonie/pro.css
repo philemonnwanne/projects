@@ -1,0 +1,236 @@
+/* Declaring variables for styling the form */
+:root {
+  --bgColor: #101010;
+  --bgSecColor: linear-gradient(45deg, #000000, #030303);
+  --formColor: black;
+  --txtColor: white;
+  --txtSecondaryColor: #f2f2f2;
+  --inputBoxBg: transparent;
+  --txtBtnColor: #ffffff;
+  --txtBtnSecondaryColor: #000000;
+  --btnBorderColor: #ffffff;
+  --font-family: "roboto";
+}
+
+* {
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 1%;
+}
+
+h2 {
+  color: black;
+  font-family: roboto;
+  margin-left: 10px;
+}
+
+.form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 35%;
+  padding: 40px 100px 40px 100px;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: var(--bgSecColor);
+}
+
+.form h2 {
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
+  color: #5f2c82;
+  text-align: center;
+}
+
+::placeholder {
+  color: var(--txtColor);
+  opacity: 1;
+}
+
+.input-box {
+  display: flex;
+}
+
+.input-box > input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: var(--txtColor);
+  border: none;
+  border-radius: 10px;
+  border-top: 1.8px solid rgb(10, 115, 105);
+  border-bottom: 1.8px solid grey;
+  background: var(--inputBoxBg);
+  text-align: center;
+}
+
+.input-box i {
+  position: absolute;
+}
+
+.mtn {
+  background: url("icons/mtn.svg");
+}
+
+.etisalat {
+  background: url("icons/9mobile.svg");
+}
+
+.airtel {
+  background: url("icons/airtel.svg");
+}
+
+.glo {
+  background: url("icons/globacom.svg");
+}
+
+.mtn,
+.airtel,
+.glo,
+.etisalat {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-top: 9px;
+  margin-left: 9px;
+}
+
+#pro-bas-btn {
+  display: flex; /* or display:grid */
+  justify-content: center;
+  margin-top: 33%;
+}
+
+.form form #advanced {
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  margin-top: 20px;
+  background-color: yellow;
+  /* background: linear-gradient(45deg, #49a09d, #5f2c82); */
+}
+
+.error {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  width: 36%;
+  transform: translate(-50%, -50%);
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+/* form style  */
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #000;
+  text-align: center;
+}
+
+.fa {
+  color: black;
+  padding-right: 20px;
+}
+
+.footer p {
+  font-family: "monospace";
+}
+
+/* Pro styles */
+#btn-div {
+  display: flex;
+  justify-content: center; /* for horizontal centering.*/
+  align-items: center; /* for vertical centering*/
+}
+
+/* #btn-div > div {
+  width: 100px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+} */
+
+.form form .pro-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 0 10px 0;
+  width: 50px;
+  margin-top: 20px;
+}
+
+/* #mtn-pro-btn {
+  background: yellow !important;
+}
+
+#airtel-pro-btn {
+  background: red !important;
+  color: #fff !important;
+}
+
+#glo-pro-btn {
+  background: green !important;
+  color: #fff !important;
+}
+
+#etisalat-pro-btn {
+  background: green !important;
+} */
+
+/* mobile responsive mode */
+@media screen and (max-width:360px) {
+  .form {
+    flex-direction: column;
+  }
+  .form .column {
+    width: 90% !important;
+  }
+  #contact .row #phone {
+    padding-right: 180px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  div#pro-bas-btn {
+    margin-top: 430px;
+  }
+}
+
+/* H1 response perfct centering */
+#h2 {
+  border: 9px double rgb(114, 119, 100);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  padding: 40px 100px 40px 100px;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  border-radius: 2px;
+  border-top-left-radius: 15%;
+  border-bottom-right-radius: 15%;
+  text-align: center;
+}
+
+h2,
+em {
+  color: rgb(0, 0, 0);
+}

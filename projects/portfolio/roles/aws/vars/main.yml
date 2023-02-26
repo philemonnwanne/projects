@@ -1,0 +1,38 @@
+# Virtual Private Cloud
+vpc_name: portfolio-vpc
+vpc_cidr: 10.0.0.0/16
+
+# Subnet
+subnet_name: portfolio-subnet
+subnet_cidr: portfolio 10.0.0.0/24
+
+# Availability Zones
+# Public Subnet CIDR block in us-east-1
+pub_az_01: us-east-1a
+pub_az_01_cidr: 10.0.0.0/20
+pub_az_02: us-east-1b
+pub_az_02_cidr: 10.0.16.0/20
+# Private Subnet CIDR block in us-east-1
+priv_az_01: us-east-1a
+priv_az_01_cidr: 10.0.128.0/20
+priv_az_02: us-east-1b
+priv_az_02_cidr: 10.0.144.0/20
+
+# Subnets
+# public subnet us-east-1
+pub_sub_01: portfolio-subnet-public1-us-east-1a
+pub_sub_02: portfolio-subnet-public2-us-east-1b
+# private subnet us-east-1
+priv_sub_01: portfolio-subnet-private1-us-east-1a
+priv_sub_02: portfolio-subnet-private2-us-east-1b
+
+# Internet Gateway
+igw_name: portfolio-igw
+
+# Route Table
+pub_route_table: portfolio-rtb-public
+priv_route_table_01: portfolio-rtb-private1-us-east-1a
+priv_route_table_02: portfolio-rtb-private2-us-east-1b
+
+# Endpoint
+endpoint_name: portfolio-vpc-endpoint

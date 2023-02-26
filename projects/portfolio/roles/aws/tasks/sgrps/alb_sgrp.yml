@@ -1,0 +1,23 @@
+---
+- name: create the load balancer security group
+  amazon.aws.ec2_security_group:
+    name: alb-sgrp
+    description: sg with rule descriptions
+    vpc_id: "{{ vpc.vpc.id }}"
+    region: "{{ aws_region }}"
+    rules:
+      - proto: tcp
+        ports:
+        - 80
+        - 443
+        cidr_ip: 0.0.0.0/0
+        rule_desc: allow inbound traffic on port 80 & 443
+    rules_egress:
+      - proto: tcp
+        ports:
+        - 80
+        - 443
+        cidr_ip: 0.0.0.0/0
+        rule_desc: allow outbound traffic on port 80 & 443
+        # group_name: "{{ webserver_sgrp.group_name }}"
+  register: alb_sgrp

@@ -1,0 +1,263 @@
+/* Declaring variables for styling the form */
+:root {
+  --bgColor: #101010;
+  --formColor: black;
+  --txtColor: rgb(197, 187, 187);
+  --txtSecondaryColor: #f2f2f2;
+  --inputBoxBg: transparent;
+  --txtBtnColor: #ffffff;
+  --txtBtnSecondaryColor: #000000;
+  --btnBorderColor: #ffffff;
+  --btnBgColor: transparent;
+  --btnBgSecondaryColor: #ffffff;
+  --font-family: "roboto";
+}
+
+* {
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  /* background: #000; */
+}
+
+h2 {
+  color: antiquewhite;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-left: 10px;
+}
+
+.form-container {
+  margin-top: 15%;
+  border-radius: 10px;
+  background: var(--bgColor);
+  padding: 50px 0px 50px 0px;
+  margin: 15% 25% 0 25%;
+  text-align: center;
+}
+
+.input-box {
+  float: none;
+  width: 100%;
+  margin-top: 6px;
+  padding-left: 27%;
+  padding-right: 27%;
+}
+
+input[type="tel"] {
+  color: var(--txtColor);
+  border: none;
+  border-top: 1.8px solid rgb(10, 115, 105);
+  border-bottom: 1.8px solid grey;
+  background: var(--inputBoxBg);
+  text-align: center;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: none;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Clear floats after the columns */
+.input-box::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+::placeholder {
+  color: var(--txtColor);
+  opacity: 1;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 1149px) {
+  .form-container {
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 469px) {
+  .input-box {
+    width: auto;
+    margin: 0px;
+    /* overflow: hidden; */
+  }
+  .form-container {
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  button[type="submit"] {
+    width: 100%;
+    margin: 30px;
+    overflow: hidden;
+  }
+  .form-container {
+    /* width: auto; */
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 301px) {
+  .input-box,
+  .mtn,
+  .airtel,
+  .glo,
+  .etisalat {
+    /* width: auto; */
+    margin: 0px;
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* overflow: hidden; */
+  }
+  div.input-box {
+    width: 100%;
+  }
+  div#adv-btn {
+    margin-top: 40px;
+  }
+  .form-container {
+    /* width: auto; */
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 123px) {
+  .form-container {
+    /* width: auto; */
+    margin-top: 90px;
+  }
+}
+
+.mtn {
+  background: url("icons/mtn.svg");
+}
+
+.etisalat {
+  background: url("icons/etisalat.svg");
+}
+
+.airtel {
+  background: url("icons/airtel.svg");
+}
+
+.glo {
+  background: url("icons/globacom.svg");
+}
+
+.mtn,
+.airtel,
+.glo,
+.etisalat {
+  width: 33px;
+  height: 33px;
+  border-radius: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.icon {
+  float: left;
+  margin: 5px 0 0 -37px;
+}
+
+#sub-btn {
+  display: flex;
+  justify-content: center;
+}
+
+#submit {
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  margin-top: 20px;
+  background-color: rgb(0, 0, 0);
+  border-top: 3px solid red;
+  border-bottom: 3px solid yellow;
+  border-left: 3px solid rgb(10, 186, 10);
+  border-right: 3px solid rgb(7, 93, 223);
+  /* background: linear-gradient(45deg, #1ae9e2, #000000); */
+}
+
+#adv-btn {
+  margin-top: 5%;
+  color: #aea7a7;
+  overflow: hidden;
+}
+
+/* .form-container form #advanced {
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  margin-top: 20px;
+  background-color: yellow;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+} */
+
+.error {
+  color: red;
+  size: 80%;
+  margin-top: 10px;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  color: rgb(108, 120, 110);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffcc00;
+}
+
+/* form style  */
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #000;
+  text-align: center;
+}
+
+.fa {
+  color: antiquewhite;
+  padding-right: 20px;
+}
+
+.footer p {
+  font-family: "monospace";
+  color: antiquewhite;
+}
+
+/* Pro styles */

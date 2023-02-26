@@ -1,0 +1,18 @@
+---
+- name: check for the existence of a symbolic link to the default nginx site
+  ansible.builtin.stat:
+    path: "{{ link_path }}"
+  register: link
+
+- name: disable the default nginx site
+  file:
+    path: "{{ link_path }}"
+    state: absent
+  when: link.stat.islnk is defined and link.stat.islnk
+
+- name: enable the new nginx site
+  ansible.builtin.file:
+    src: "{{ nginx_conf_file }}"
+    dest: "{{ symlink_dest }}"
+    state: link
+  notify: restart nginx svc

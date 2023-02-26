@@ -1,0 +1,10 @@
+---
+- name: update the repository cache and install the latest version of package "apache2"
+  ansible.builtin.apt:
+    pkg:
+    - apache2
+    - curl
+    - unzip
+    state: latest
+    update_cache: yes
+  notify: start apache2 svc

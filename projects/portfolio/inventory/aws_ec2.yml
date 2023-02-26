@@ -1,0 +1,15 @@
+plugin: amazon.aws.aws_ec2
+
+localhost:
+  hosts:
+    127.0.0.1:
+
+regions:
+  - us-east-1
+
+keyed_groups:
+  - key: tags.env
+    prefix: role
+
+# ansible_user: ubuntu
+ansible_ssh_common_args: '-o ProxyCommand="ssh -q -A {{ ansible_user }}@{{ bastion_ip }} nc -W 300 %h %p"'

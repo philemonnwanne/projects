@@ -1,0 +1,10 @@
+# tasks for /roles/nginx/tasks/
+---
+- name: install the nginx web server
+  import_tasks: install.yml
+
+- name: configure the nginx web server
+  import_tasks: config.yml
+
+- name: setup the nginx service
+  import_tasks: service.yml

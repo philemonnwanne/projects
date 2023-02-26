@@ -1,0 +1,19 @@
+---
+- name: create the webserver security group
+  amazon.aws.ec2_security_group:
+    name: webserver-sgrp
+    description: allow http and https traffic
+    vpc_id: "{{ vpc.vpc.id }}"
+    region: "{{ aws_region }}"
+    rules:
+      - proto: tcp
+        ports: 22
+        cidr_ip: 0.0.0.0/0
+        rule_desc: allow ssh access from bastion host
+      - proto: tcp
+        ports: 
+        - 80
+        # - 443
+        group_name: "{{ alb_sgrp.group_name }}"
+        rule_desc: allow health_check pings from the load balancer
+  register: webserver_sgrp

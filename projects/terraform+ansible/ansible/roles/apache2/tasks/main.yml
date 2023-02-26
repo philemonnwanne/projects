@@ -1,0 +1,10 @@
+# tasks for /roles/nginx/tasks/
+---
+- name: install the apache2 web server
+  import_tasks: install.yml
+
+- name: configure the apache2 web server
+  import_tasks: config.yml
+
+- name: setup the apache2 service
+  import_tasks: service.yml

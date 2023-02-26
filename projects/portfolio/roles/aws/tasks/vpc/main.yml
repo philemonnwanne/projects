@@ -1,0 +1,15 @@
+# tasks for /roles/aws/tasks/vpc
+- name: create a vpc on aws
+  import_tasks: vpc.yml
+
+- name: create subnets in the vpc
+  import_tasks: subnet.yml
+
+- name: create an internet gateway
+  import_tasks: igw.yml
+
+- name: create a public route table in the vpc
+  import_tasks: route.yml
+
+# - name: create a vpc on aws
+#   import_tasks: endpoint.yml

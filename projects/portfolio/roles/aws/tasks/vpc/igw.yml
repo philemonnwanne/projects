@@ -1,0 +1,7 @@
+- name: create internet gateway
+  amazon.aws.ec2_vpc_igw:
+    vpc_id: "{{ vpc.vpc.id }}"
+    state: present
+    tags:
+      Name: "{{ igw_name }}"
+  register: igw

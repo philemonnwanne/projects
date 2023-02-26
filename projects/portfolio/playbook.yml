@@ -1,0 +1,19 @@
+# this playbook deploys the whole application stack in this site
+---
+- name: configure and deploy the aws infrastructure
+  hosts: localhost
+  connection: local
+  roles:
+    - aws
+    # - passenger
+    # - python
+    # - uwsgix
+    # - common
+    
+---
+- name: configure and deploy the webservers and application code
+  hosts: role_prod
+  become: true 
+  become_user: root 
+  roles:
+    - nginx

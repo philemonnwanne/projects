@@ -1,0 +1,23 @@
+---
+- name: create the webserver asg from launch template
+  amazon.aws.autoscaling_group:
+    name: webserver-asg
+    region: "{{ aws_region }}"
+    target_group_arns: "{{ alb_tag_grp.target_group_arn }}"
+    availability_zones: [ "{{ priv_az_01 }}", "{{ priv_az_02 }}" ] 
+    health_check_period: 365
+    health_check_type: 'ELB'
+    launch_template:
+        launch_template_name: webserver-launch-template
+    default_cooldown: 60
+    min_size: 1
+    max_size: 4
+    desired_capacity: 2
+    vpc_zone_identifier: [ "{{ priv_sub_01_use1a.subnet.id }}", "{{ priv_sub_02_use1b.subnet.id }}" ]
+    tags:
+      - env: prod
+      - Name: webserver
+        propagate_at_launch: true
+    wait_for_instances: true
+    wait_timeout: 360
+  register: asg

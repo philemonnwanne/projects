@@ -1,0 +1,12 @@
+- name: Create new vpc endpoint with the default policy
+  amazon.aws.ec2_vpc_endpoint:
+    state: present
+    region: "{{ aws_region }}"
+    vpc_id: "{{ vpc.vpc.id }}"
+    service: "com.amazonaws.{{ aws_region }}.s3"
+    route_table_ids:
+      - "{{ priv_route_01.route_table.route_table_id }}"
+      - "{{ priv_route_02.route_table.route_table_id }}"
+    tags:
+      Name: "{{ endpoint_name }}"
+  register: portfolio_vpc_endpoint

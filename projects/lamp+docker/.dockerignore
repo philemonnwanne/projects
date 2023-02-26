@@ -1,0 +1,9 @@
+.git
+.gitignore
+# **/docker-compose*
+# **/compose*
+# **/Dockerfile*
+# README.md
+LICENSE
+.vscode
+/vendor/

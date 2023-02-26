@@ -1,0 +1,41 @@
+---
+- name: create a bastion host
+  amazon.aws.ec2_instance:
+    name: bastion-us-east1a
+    key_name: my-key
+    vpc_subnet_id: "{{ pub_az_01_use1a.subnet.id }}"
+    instance_type: t2.micro
+    security_group: "{{ bastion_sgrp.group_id }}"
+    network:
+      assign_public_ip: true
+      source_dest_check: false
+    image_id: "{{ amazon_nat_ami }}"
+    tags:
+      name: bastion
+      location: public subnet
+    wait: true
+    wait_timeout: 600
+  register: bastion_01
+
+- name: create a bastion host
+  amazon.aws.ec2_instance:
+    name: bastion-us-east1b
+    key_name: my-key
+    vpc_subnet_id: "{{ pub_az_02_use1b.subnet.id }}"
+    instance_type: t2.micro
+    security_group: "{{ bastion_sgrp.group_id }}"
+    network:
+      assign_public_ip: true
+      source_dest_check: false
+    image_id: "{{ amazon_nat_ami }}"
+    tags:
+      name: bastion
+      location: public subnet
+    wait: true
+    wait_timeout: 600
+  register: bastion_02
+
+- name: sleep for 300 seconds and continue with play
+  ansible.builtin.wait_for:
+    timeout: 300
+  delegate_to: localhost

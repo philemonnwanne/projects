@@ -1,0 +1,10 @@
+---
+- name: start httpd svc
+  ansible.builtin.service:
+    name: httpd
+    state: started
+
+- name: restart httpd svc
+  ansible.builtin.service:
+    name: httpd
+    state: restarted

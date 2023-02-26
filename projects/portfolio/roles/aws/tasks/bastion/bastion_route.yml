@@ -1,0 +1,39 @@
+---
+- name: create private route table one for first az
+  amazon.aws.ec2_vpc_route_table:
+    vpc_id: "{{ vpc.vpc.id }}"
+    region: "{{ aws_region }}"
+    subnets:
+      - "{{ priv_sub_01_use1a.subnet.id }}"
+    routes:
+    - dest: 0.0.0.0/0
+      instance_id: "{{ bastion_01.instances[0].instance_id }}"
+    tags:
+      Name: "{{ priv_route_table_01 }}"
+  register: priv_route_01
+  # when: bastion_01.instances[0].state.name == "present"
+- name: add NAT/bastion instance to host group [bastion]
+  ansible.builtin.add_host:
+    name: "{{ bastion_01.instances[0].public_ip_address }}"
+    groups: bastion
+
+- name: create private route table two for second az
+  amazon.aws.ec2_vpc_route_table:
+    vpc_id: "{{ vpc.vpc.id }}"
+    region: "{{ aws_region }}"
+    subnets:
+      - "{{ priv_sub_02_use1b.subnet.id }}"
+    routes:
+    - dest: 0.0.0.0/0
+      instance_id: "{{ bastion_02.instances[0].instance_id }}"
+    tags:
+      Name: "{{ priv_route_table_02 }}"
+  register: priv_route_02
+  # when: bastion_02.instances[0].state.name == "present"
+
+- name: add NAT/bastion instance to host group [bastion]
+  ansible.builtin.add_host:
+    name: "{{ bastion_02.instances[0].public_ip_address }}"
+    groups: bastion
+
+

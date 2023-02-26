@@ -1,0 +1,50 @@
+- name: create an webserver instance with a private IP address
+  amazon.aws.ec2_instance:
+    name: webserver-01
+    key_name: my-key
+    vpc_subnet_id: "{{ priv_sub_01_use1a.subnet.id }}"
+    instance_type: t2.micro
+    security_group: "{{ webserver_sgrp.group_id }}"
+    network:
+      assign_public_ip: false
+    image_id: "{{ ubuntu_jammy }}"
+    tags:
+      type: webserver
+      location: private subnet
+    wait: true
+    wait_timeout: 600
+    # user_data: "{{ user_data }}"
+  register: webserver_01
+
+- name: add webserver-01 instance private IP to host group [webservers]
+  ansible.builtin.add_host:
+    name: "{{ webserver_01.instances[0].private_ip_address }}"
+    groups: webservers
+
+- name: create an webserver instance with a private IP address
+  amazon.aws.ec2_instance:
+    name: webserver-02
+    key_name: my-key
+    vpc_subnet_id: "{{ priv_sub_02_use1b.subnet.id }}"
+    instance_type: t2.micro
+    security_group: "{{ webserver_sgrp.group_id }}"
+    network:
+      assign_public_ip: false
+    image_id: "{{ ubuntu_jammy }}"
+    tags:
+      type: webserver
+      location: private subnet
+    wait: true
+    wait_timeout: 600
+    # user_data: "{{ user_data }}"
+  register: webserver_02
+
+- name: add webserver-02 instance private IP to host group [webservers]
+  ansible.builtin.add_host:
+    name: "{{ webserver_02.instances[0].private_ip_address }}"
+    groups: webservers
+
+- name: sleep for 120 seconds and continue with play
+  ansible.builtin.wait_for:
+    timeout: 120
+  delegate_to: localhost

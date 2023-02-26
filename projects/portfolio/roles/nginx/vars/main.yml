@@ -1,0 +1,9 @@
+---
+disable_default: true
+link_path: /etc/nginx/sites-enabled/default
+document_root: /var/www/philemonnwanne.me
+nginx_conf_file: /etc/nginx/sites-available/philemonnwanne.me
+symlink_src: /etc/nginx/sites-available/philemonnwanne.me
+symlink_dest: /etc/nginx/sites-enabled/philemonnwanne.me
+http_host: philemonnwanne.me
+http_port: 80

@@ -1,0 +1,4 @@
+# tasks for /roles/aws/tasks/webserver
+---
+- name: create the private webserver
+  import_tasks: webserver.yml

@@ -1,0 +1,7 @@
+---
+- name: Update the repository cache and install the latest version of package "nginx"
+  ansible.builtin.apt:
+    name: nginx
+    state: latest
+    update_cache: yes
+  notify: start nginx svc

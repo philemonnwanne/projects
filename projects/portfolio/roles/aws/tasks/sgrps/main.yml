@@ -1,0 +1,10 @@
+# tasks for /roles/aws/tasks/sgrps
+---
+- name: create a security group for the bastion host
+  import_tasks: bastion_sgrp.yml
+
+- name: create a security group for the load balancer
+  import_tasks: alb_sgrp.yml
+
+- name: create a security group for the webserver
+  import_tasks: webserver_sgrp.yml

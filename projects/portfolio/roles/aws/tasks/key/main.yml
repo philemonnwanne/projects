@@ -1,0 +1,6 @@
+---
+- name: create key pair using key_material obtained using 'file' lookup plugin
+  amazon.aws.ec2_key:
+    name: my-key
+    region: "{{ aws_region }}"
+    key_material: "{{ lookup('file', '/home/vagrant/my-key.pub') }}"

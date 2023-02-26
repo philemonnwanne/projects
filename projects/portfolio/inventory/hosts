@@ -1,0 +1,6 @@
+[tag_webserver:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q {{ bastion_user }}@3.84.14.235"'
+bastion_user=ec2-user
+ansible_ssh_user=ubuntu
+IdentityFile=/home/vagrant/my-key.pem
+

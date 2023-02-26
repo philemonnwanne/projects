@@ -1,0 +1,8 @@
+---
+- name: playbook to host a simple web page on apache webserver
+  hosts: all
+  become: true # perform all the ansible playbook tasks as another user
+  become_user: root # default username to be used by ansible
+  roles:
+    # - apache2
+    - httpd
